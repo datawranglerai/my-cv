@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="James Wolman — Head of Data Science CV">
+  <title>James Wolman | Head of Data Science</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;450;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+    @font-face {
+      font-family: "Big Blue Terminal";
+      src: url("fonts/Big%20Blue%20Terminal/BigBlueTerm437NerdFont-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #0f111a;
+      --bg-deep: #080a10;
+      --chrome: rgba(34, 39, 55, 0.92);
+      --chrome-line: rgba(255, 255, 255, 0.08);
+      --text: #d8dee9;
+      --muted: #8f9aae;
+      --dim: #697386;
+      --prompt: #8be9fd;
+      --accent: #ffcb6b;
+      --accent-2: #c792ea;
+      --green: #a3be8c;
+      --border: rgba(139, 233, 253, 0.16);
+      --shadow: rgba(0, 0, 0, 0.52);
+      --glow: rgba(139, 233, 253, 0.14);
+      --rainbow: linear-gradient(90deg, #ff6b7a 0%, #ffcb6b 18%, #a3be8c 36%, #8be9fd 56%, #82aaff 74%, #c792ea 100%);
+      --max-width: 820px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      font-family: "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.65;
+      letter-spacing: -0.012em;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(70, 86, 126, 0.22), transparent 34rem),
+        radial-gradient(circle at 18% 82%, rgba(199, 146, 234, 0.10), transparent 30rem),
+        radial-gradient(circle at 82% 78%, rgba(255, 203, 107, 0.10), transparent 28rem),
+        radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.24) 58%, rgba(0, 0, 0, 0.62) 100%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-deep) 100%);
+      text-shadow: 0 0 0.55rem rgba(216, 222, 233, 0.10);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.018) 50%, rgba(0, 0, 0, 0.045) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.010), rgba(0, 255, 255, 0.006), rgba(0, 0, 255, 0.010));
+      background-size: 100% 4px, 6px 100%;
+      opacity: 0.22;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      background: radial-gradient(ellipse at center, transparent 52%, rgba(0, 0, 0, 0.33) 82%, rgba(0, 0, 0, 0.58) 100%);
+      box-shadow: inset 0 0 8rem rgba(0, 0, 0, 0.72);
+    }
+
+    a {
+      color: var(--prompt);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(139, 233, 253, 0.42);
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #b7f7ff;
+      border-bottom-color: currentColor;
+    }
+
+    .page-shell {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 4rem auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .terminal-window {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(30, 34, 49, 0.96), rgba(16, 19, 29, 0.97));
+      box-shadow:
+        0 2rem 5rem var(--shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.035),
+        0 0 4.5rem rgba(139, 233, 253, 0.06),
+        inset 0 0 4rem rgba(139, 233, 253, 0.025);
+      backdrop-filter: blur(18px);
+    }
+
+    .window-bar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      min-height: 3.25rem;
+      padding: 0 1.15rem;
+      background: linear-gradient(180deg, rgba(42, 48, 66, 0.94), var(--chrome));
+      border-bottom: 1px solid var(--chrome-line);
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .dot {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.28), 0 0 0.75rem rgba(255, 255, 255, 0.04);
+    }
+
+    .dot.red { background: linear-gradient(135deg, #ff7a86, #b94b58); }
+    .dot.yellow { background: linear-gradient(135deg, #f6cf75, #b78a3d); }
+    .dot.green { background: linear-gradient(135deg, #9fe2ad, #4e9f67); }
+
+    .window-title {
+      justify-self: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+      text-shadow: 0 0 0.7rem rgba(139, 233, 253, 0.13);
+    }
+
+    .window-status {
+      color: var(--dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding: clamp(1.35rem, 4vw, 3rem);
+    }
+
+    .hero {
+      padding-bottom: 2.25rem;
+      margin-bottom: 2.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .eyebrow,
+    .section-command {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--prompt);
+      font-weight: 600;
+      text-shadow: 0 0 0.8rem var(--glow);
+    }
+
+    .eyebrow::before,
+    .section-command::before {
+      content: "~";
+      color: var(--accent-2);
+    }
+
+    h1 {
+      min-height: 2.35em;
+      margin: 0.85rem 0 0.35rem;
+      color: transparent;
+      background: var(--rainbow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-family: "Big Blue Terminal", "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 400;
+      font-size: clamp(2.35rem, 9vw, 4.65rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      filter: drop-shadow(0 0 0.95rem rgba(139, 233, 253, 0.13));
+    }
+
+    .typing-line {
+      display: block;
+      min-height: 1.4rem;
+      margin: 0.2rem 0 1.35rem;
+      color: var(--accent);
+      font-size: clamp(0.88rem, 2.8vw, 1.02rem);
+    }
+
+    .typing-line::after {
+      content: "▋";
+      display: inline-block;
+      margin-left: 0.1rem;
+      color: var(--prompt);
+      animation: blink 0.9s steps(1, end) infinite;
+    }
+
+    .typing-line.done::after {
+      opacity: 0.6;
+      animation: none;
+    }
+
+    @keyframes blink {
+      0%, 48% { opacity: 1; }
+      49%, 100% { opacity: 0; }
+    }
+
+    .role {
+      margin: 0;
+      color: #eef2f8;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      font-weight: 600;
+    }
+
+    .summary {
+      max-width: 70ch;
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .quick-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      padding: 0;
+      margin: 1.45rem 0 0;
+      list-style: none;
+    }
+
+    .quick-stack li {
+      position: relative;
+      padding: 0.42rem 0.7rem;
+      color: #10131d;
+      border: 0;
+      border-radius: 0;
+      background: var(--green);
+      box-shadow: 0 0 1rem rgba(139, 233, 253, 0.055);
+      clip-path: polygon(0 0, calc(100% - 0.55rem) 0, 100% 50%, calc(100% - 0.55rem) 100%, 0 100%, 0.28rem 50%);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .quick-stack li:nth-child(1) { background: #ff6b7a; }
+    .quick-stack li:nth-child(2) { background: #ffcb6b; }
+    .quick-stack li:nth-child(3) { background: #a3be8c; }
+    .quick-stack li:nth-child(4) { background: #8be9fd; }
+    .quick-stack li:nth-child(5) { background: #c792ea; }
+
+    section {
+      margin: 0 0 2.65rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .section-command {
+      width: 100%;
+      margin-bottom: 1.15rem;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      letter-spacing: -0.035em;
+      color: transparent;
+      background: var(--rainbow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 0 0.65rem rgba(139, 233, 253, 0.12));
+    }
+
+    .section-command::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 0.65rem;
+      min-width: 4rem;
+      margin-left: 0.75rem;
+      opacity: 0.62;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(255, 107, 122, 0.70) 0 0.38rem,
+          rgba(255, 203, 107, 0.70) 0.38rem 0.76rem,
+          rgba(163, 190, 140, 0.70) 0.76rem 1.14rem,
+          rgba(139, 233, 253, 0.70) 1.14rem 1.52rem,
+          rgba(199, 146, 234, 0.70) 1.52rem 1.90rem,
+          transparent 1.90rem 2.35rem);
+      -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 88%);
+      mask-image: linear-gradient(90deg, #000 0%, transparent 88%);
+    }
+
+    .terminal-block {
+      position: relative;
+      padding: 0.15rem 0 0.2rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .terminal-block + .terminal-block {
+      margin-top: 1.65rem;
+      padding-top: 1.45rem;
+      border-top: 1px dashed rgba(216, 222, 233, 0.13);
+    }
+
+    .recognition-list,
+    .achievement-list {
+      padding-left: 1.05rem;
+      margin: 0.85rem 0 0;
+    }
+
+    li {
+      margin: 0.62rem 0;
+      padding-left: 0.18rem;
+    }
+
+    li::marker {
+      color: var(--prompt);
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      color: #f4f7fb;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-family: "Big Blue Terminal", "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      font-size: clamp(1.24rem, 4vw, 1.62rem);
+    }
+
+    h3 {
+      font-size: clamp(1.05rem, 3vw, 1.22rem);
+    }
+
+    .meta {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .descriptor {
+      margin: 0.7rem 0 0.25rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    strong {
+      color: #fff6d7;
+      font-weight: 700;
+    }
+
+    em {
+      color: #cbd5e1;
+    }
+
+    .footer-prompt {
+      padding-top: 1.6rem;
+      margin-top: 2rem;
+      color: var(--dim);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 0.82rem;
+    }
+
+    .footer-prompt span {
+      color: var(--prompt);
+    }
+
+    ::selection {
+      color: #0f111a;
+      background: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(100% - 0.8rem, var(--max-width));
+        margin: 0.4rem auto;
+      }
+
+      .terminal-window {
+        border-radius: 16px;
+      }
+
+      .window-bar {
+        grid-template-columns: auto 1fr;
+        gap: 0.8rem;
+        padding: 0 0.85rem;
+      }
+
+      .window-title {
+        justify-self: start;
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+      }
+
+      .window-status {
+        display: none;
+      }
+
+      main {
+        padding: 1.15rem;
+      }
+
+      .terminal-block {
+        padding: 0.1rem 0 0.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <article class="terminal-window" aria-label="James Wolman CV terminal window">
+      <div class="window-bar" aria-hidden="true">
+        <div class="window-controls">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="window-title">jwolman@braidr: ~/cv</div>
+        <div class="window-status">read-only</div>
+      </div>
+
+      <main>
+        <header class="hero">
+          <div class="eyebrow">profile --loaded</div>
+          <h1>James Wolman</h1>
+          <p class="typing-line" data-type-text="&gt; ./load_profile.sh --person james_wolman" aria-label="Loading James Wolman's profile"></p>
+          <p class="role">Head of Data Science</p>
+          <p class="summary">
+            I build data science and AI capabilities from scratch. The job sits between hands-on engineering and intelligence strategy, which suits me. I've spent most of the last decade turning vague “we should do something with AI” briefs into systems that actually run in production, win pitches, and survive contact with real clients across nine industries.
+          </p>
+          <p class="summary">
+            Sceptical of AI hype, genuinely excited about the parts that work. Most companies don't need agents (yet), and the ones that do usually need plumbing first.
+          </p>
+          <ul class="quick-stack" aria-label="Profile highlights">
+            <li>AI strategy</li>
+            <li>Production ML</li>
+            <li>Cloud architecture</li>
+            <li>Data science leadership</li>
+            <li>Commercial intelligence</li>
+          </ul>
+        </header>
+
+        <section id="recognition" aria-labelledby="recognition-heading">
+          <div class="section-command" id="recognition-heading">/recognition$ cat awards.log</div>
+          <div class="terminal-block">
+            <ul class="recognition-list">
+              <li><strong>£20K Fanatics Brand Challenge winner</strong>, MAD//Fest 2024. Open-format innovation challenge.</li>
+              <li><strong>BIMA Trailblazer</strong>, recognised by the British Interactive Media Association.</li>
+              <li><strong>Multiple Best Use of Data awards</strong> across the UK Search Awards, UK Business Tech Awards, UK Digital Growth Awards, and Google.</li>
+              <li><strong>Work featured in a 2024 Channel 4 documentary</strong> on cultural analysis.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="experience" aria-labelledby="experience-heading">
+          <div class="section-command" id="experience-heading">/experience$ tail -f career.log</div>
+
+          <div class="terminal-block">
+            <h2>Head of Data Science</h2>
+            <p class="meta">Braidr (Tomorrow Group) | London | Sep 2021 – Present</p>
+            <p class="descriptor">
+              Architected and scaled the agency's data science function from zero to a fully operational, multidisciplinary practice. Operating as a builder-theorist, balancing hands-on engineering of production-grade ML systems with defining the overarching data science and intelligence strategy for the entire organization.
+            </p>
+            <ul class="achievement-list">
+              <li><strong>Corporate Intelligence Strategy:</strong> Define and steer the agency's long-term data science and AI strategy, aligning technical capabilities with commercial objectives and market positioning across 9 distinct client industries.</li>
+              <li><strong>Zero-to-One Practice Leadership:</strong> Built and managed a 7-person cross-functional team of ML/Data/Cloud Engineers, Solution Architects, and Analysts, overseeing distributed talent across locations including London and Romania. Instituted rigorous career development frameworks, agile cadences, and continuous direct-feedback loops.</li>
+              <li><strong>Engineering Culture &amp; Security:</strong> Authored the Secure Development Lifecycle (SDLC) and core cloud policies, driving the technical requirements for the organization's ISO27001 compliance. Standardized foundational engineering workflows, including version control and containerized deployments using Bitbucket and Docker orchestration.</li>
+              <li><strong>Commercial Frameworks:</strong> Championed a proprietary <em>Define &gt; Solve &gt; Plan &gt; Deliver &gt; Optimise</em> commercial framework, establishing a culture that fiercely protects engineering time and values strategic problem-solving over raw output.</li>
+              <li><strong>Enterprise Product Architecture (Luminr):</strong> Single-handedly architected the original codebase for Luminr, scaling it into an enterprise product capable of analyzing hundreds of millions of search results across Google, Amazon, and TikTok. Successfully took the product to the Web Summit AI startup showcase twice.</li>
+              <li><strong>High-Performance Production ML:</strong> Designed and shipped highly optimized, client-facing ML systems, including a FastAPI + Vertex AI inference pipeline deployed on Cloud Run. Optimized heavy text embedding models to achieve sub-100ms latency for a platform processing millions of daily hits, alongside developing models utilizing isotonic regression calibration.</li>
+              <li><strong>Agentic AI Strategy &amp; Innovation:</strong> Leading the internal agentic AI strategy to develop an interconnected system of operational agents, architecting complex LLM orchestration pipelines using frameworks like LiteLLM, Claude Code, and Memgraph graph databases.</li>
+              <li><strong>Proprietary IP &amp; Tech for Good:</strong> Designed, architected, and co-implemented a multi-agent AI maturity evaluation framework that now serves as a primary commercial USP. Actively shaping the principles and leading technical execution for the agency's AI for Good initiatives.</li>
+            </ul>
+          </div>
+
+          <div class="terminal-block">
+            <h2>Senior Data Scientist <em>(Progressed from Data Analyst &amp; Data Scientist)</em></h2>
+            <p class="meta">Found (Tomorrow Group) | London, UK | Nov 2015 – Aug 2021</p>
+            <p class="descriptor">
+              Progressed through multiple technical tiers over six years to lead marketing-focused data science initiatives. Directed full-lifecycle client insight projects and spearheaded internal R&amp;D.
+            </p>
+            <ul class="achievement-list">
+              <li><strong>Commercial Impact &amp; Pitching:</strong> Packaged complex data insights into client-facing deliverables and presented directly to stakeholders. Acted as the primary competitive differentiator, directly contributing to numerous pitch wins, industry awards, and acting as the cited reason for client acquisition.</li>
+              <li><strong>Machine Learning &amp; R&amp;D:</strong> Engineered internal machine learning models to classify user intent, enriching digital marketing strategies and targeting precision.</li>
+              <li><strong>Search Demand Innovation:</strong> Developed novel statistical approaches to measure and analyze search demand, integrating these tools into the daily workflows of internal teams to drive client strategy.</li>
+              <li><strong>Technical Leadership:</strong> Mentored junior data analysts and scientists, and led cross-functional project pods, facilitating a natural transition into executive leadership.</li>
+              <li><strong>Core Technologies:</strong> Python (pandas, NumPy, PyTorch, TensorFlow, scikit-learn), R (plyr, caret, Shiny), SQL, GCP, Data Visualization (ggplot2, Bokeh).</li>
+            </ul>
+          </div>
+
+          <div class="terminal-block">
+            <h2>Freelance Science Writer</h2>
+            <p class="meta">The Positive | Nov 2014 – Aug 2015</p>
+            <p>Translated complex scientific and health research into accurate, accessible writing for a readership of over 80,000. Liaised directly with global research teams and evaluated methodologies. Good training for explaining why a model is wrong to a client who really wants it to be right.</p>
+          </div>
+
+          <div class="terminal-block">
+            <h2>Analyst, Technology Division</h2>
+            <p class="meta">HSBC Global Banking &amp; Markets | Aug 2013 – Dec 2014</p>
+            <p>Built VBA automation for financial data workflows and collaborated with international stakeholders to redesign the team's change control system. My first proper encounter with the gap between what technology promises and what it actually delivers under pressure.</p>
+          </div>
+        </section>
+
+        <section id="education" aria-labelledby="education-heading">
+          <div class="section-command" id="education-heading">/education$ grep -i foundations</div>
+          <div class="terminal-block">
+            <h2>MSc Human Genetics</h2>
+            <p class="meta">University College London (UCL)</p>
+            <p><strong>Additional Experience:</strong> Completed technical and strategic summer internships at the <strong>National Physical Laboratory (NPL)</strong> and <strong>Serco Management Consulting</strong>.</p>
+          </div>
+        </section>
+
+        <footer class="footer-prompt">
+          <span>jwolman@braidr:~/cv$</span> exit — profile rendered in static mode
+        </footer>
+      </main>
+    </article>
+  </div>
+
+  <script>
+    (() => {
+      const asciiLogo = String.raw`
+       ██╗ █████╗ ███╗   ███╗███████╗███████╗    ██╗    ██╗ ██████╗ ██╗     ███╗   ███╗ █████╗ ███╗   ██╗
+       ██║██╔══██╗████╗ ████║██╔════╝██╔════╝    ██║    ██║██╔═══██╗██║     ████╗ ████║██╔══██╗████╗  ██║
+       ██║███████║██╔████╔██║█████╗  ███████╗    ██║ █╗ ██║██║   ██║██║     ██╔████╔██║███████║██╔██╗ ██║
+  ██   ██║██╔══██║██║╚██╔╝██║██╔══╝  ╚════██║    ██║███╗██║██║   ██║██║     ██║╚██╔╝██║██╔══██║██║╚██╗██║
+  ╚█████╔╝██║  ██║██║ ╚═╝ ██║███████╗███████║    ╚███╔███╔╝╚██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
+   ╚════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝     ╚══╝╚══╝  ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝`;
+
+      console.log(
+        "%c" + asciiLogo,
+        "color:#8be9fd; background:#0f111a; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-weight:700; text-shadow:0 0 8px rgba(139,233,253,.45); line-height:1.15;"
+      );
+      console.groupCollapsed("🔍 [SECURE DATA RETRIEVED]: Classified Side Projects");
+      console.groupCollapsed("%c01.%c n8n Self-Hosting Repository", "color:#ff6b7a;font-weight:700;", "color:#d8dee9;font-weight:700;");
+      console.log("%cURL:%c https://github.com/datawranglerai/self-host-n8n-on-gcr", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
+      console.log("%cSignal:%c 600+ GitHub Stars", "color:#a3be8c;font-weight:700;", "color:#d8dee9;");
+      console.log("%cIntel:%c Includes direct contributions from the Google Cloud Run team in Silicon Valley.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupEnd();
+      console.groupCollapsed("%c02.%c where was i?", "color:#ffcb6b;font-weight:700;", "color:#d8dee9;font-weight:700;");
+      console.log("%cURL:%c https://app.wherewasi.co.uk", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
+      console.log("%cIntel:%c Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupEnd();
+      console.groupCollapsed("%c03.%c Talk Data To Me", "color:#a3be8c;font-weight:700;", "color:#d8dee9;font-weight:700;");
+      console.log("%cURL:%c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
+      console.log("%cIntel:%c DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupEnd();
+      console.groupEnd();
+
+      const typeTarget = document.querySelector(".typing-line");
+      const finalText = typeTarget?.dataset.typeText || "";
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!typeTarget) return;
+      if (reduceMotion) {
+        typeTarget.textContent = finalText;
+        typeTarget.classList.add("done");
+        return;
+      }
+
+      let index = 0;
+      const typeNext = () => {
+        typeTarget.textContent = finalText.slice(0, index);
+        index += 1;
+        if (index <= finalText.length) {
+          window.setTimeout(typeNext, index < 5 ? 120 : 34);
+        } else {
+          typeTarget.classList.add("done");
+        }
+      };
+
+      window.setTimeout(typeNext, 280);
+    })();
+  </script>
+</body>
+</html>

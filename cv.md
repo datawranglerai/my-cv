@@ -2,17 +2,16 @@
 
 ## Executive Summary
 
-A builder-theorist and data science executive specializing in architecting from-scratch, multidisciplinary AI and ML capabilities. Proven track record of balancing overarching organizational intelligence strategy with hands-on, production-grade ML engineering. Expert in translating complex data architectures into clear commercial value, acting as a decisive competitive advantage in client acquisition and retention across diverse industries.
+I build data science and AI capabilities from scratch. The job sits between hands-on engineering and intelligence strategy, which suits me. I've spent most of the last decade turning vague "we should do something with AI" briefs into systems that actually run in production, win pitches, and survive contact with real clients across nine industries.
 
-### Awards & Recognition 
+Sceptical of AI hype, genuinely excited about the parts that work. Most companies don't need agents (yet), and the ones that do usually need plumbing first.
 
-* **Winner, £20K Fanatics Brand Challenge:** MAD//Fest (2024) – Competitive open-format innovation challenge.
+### Recognition
 
-* **BIMA Trailblazer:**** Recognized by the British Interactive Media Association for industry-leading impact.
-
-* **Industry Awards:** Recipient of multiple "Best Use of Data" awards across bodies including UK Search Awards, UK Business Tech Awards, UK Digital Growth Awards, and Google.
-
-* **Media Feature:** Featured in a 2024 Channel 4 documentary highlighting innovative data and technology work.
+* **£20K Fanatics Brand Challenge winner**, MAD//Fest 2024. Open-format innovation challenge.
+* **BIMA Trailblazer**, recognised by the British Interactive Media Association.
+* **Multiple Best Use of Data awards** across the UK Search Awards, UK Business Tech Awards, UK Digital Growth Awards, and Google.
+* **Work featured in a 2024 Channel 4 documentary** on cultural analysis.
 
 ## Professional Experience
 
@@ -53,14 +52,13 @@ A builder-theorist and data science executive specializing in architecting from-
 
 **The Positive | Nov 2014 – Aug 2015**
 
-* Analyzed scientific papers, evaluated methodologies, and liaised with global research teams to translate complex scientific and health data into accessible, accurate content for an audience exceeding 80,000 readers.
+Translated complex scientific and health research into accurate, accessible writing for a readership of over 80,000. Liaised directly with global research teams and evaluated methodologies. Good training for explaining why a model is wrong to a client who really wants it to be right.
 
-### **Analyst (Technology Division)**
+### Analyst, Technology Division ###
 
 **HSBC Global Banking & Markets | Aug 2013 – Dec 2014**
 
-* Engineered VBA scripts to automate external data queries and update financial workbooks, streamlining reporting workflows.
-* Collaborated with international stakeholders to reengineer the team's change control system, bridging technical implementations with financial operations.
+Built VBA automation for financial data workflows and collaborated with international stakeholders to redesign the team's change control system. My first proper encounter with the gap between what technology promises and what it actually delivers under pressure.
 
 ---
 
