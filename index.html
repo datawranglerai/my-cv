@@ -6,13 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="James Wolman — Head of Data Science CV">
   <title>James Wolman | Head of Data Science</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f111a'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='30' font-weight='700' fill='%238be9fd'%3E$_%3C/text%3E%3C/svg%3E">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;450;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
-
     @font-face {
       font-family: "Big Blue Terminal";
       src: url("fonts/Big%20Blue%20Terminal/BigBlueTerm437NerdFont-Regular.ttf") format("truetype");
       font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono/JetBrainsMonoNerdFont-Italic.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono/JetBrainsMonoNerdFont-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono/JetBrainsMonoNerdFont-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono/JetBrainsMonoNerdFont-Bold.ttf") format("truetype");
+      font-weight: 700;
       font-style: normal;
       font-display: swap;
     }
@@ -24,7 +63,7 @@
       --chrome: rgba(34, 39, 55, 0.92);
       --chrome-line: rgba(255, 255, 255, 0.08);
       --text: #d8dee9;
-      --muted: #a7b1c2;
+      --muted: #b7c0ce;
       --dim: #909bad;
       --prompt: #8be9fd;
       --accent: #ffcb6b;
@@ -46,10 +85,12 @@
     }
 
     body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       margin: 0;
       color: var(--text);
-      font-family: "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       line-height: 1.65;
       letter-spacing: -0.012em;
       background:
@@ -185,13 +226,13 @@
     }
 
     h1 {
-      min-height: 2.35em;
+      min-height: 1.05em;
       margin: 0.85rem 0 0.35rem;
       color: transparent;
       background: var(--rainbow);
       -webkit-background-clip: text;
       background-clip: text;
-      font-family: "Big Blue Terminal", "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: "Big Blue Terminal", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-weight: 400;
       font-size: clamp(2.35rem, 9vw, 4.65rem);
       line-height: 0.98;
@@ -250,23 +291,40 @@
 
     .quick-stack li {
       position: relative;
-      padding: 0.42rem 0.7rem;
-      color: #10131d;
-      border: 0;
-      border-radius: 0;
-      background: var(--green);
-      box-shadow: 0 0 1rem rgba(139, 233, 253, 0.055);
-      clip-path: polygon(0 0, calc(100% - 0.55rem) 0, 100% 50%, calc(100% - 0.55rem) 100%, 0 100%, 0.28rem 50%);
+      padding: 0.36rem 0.62rem;
+      color: var(--prompt);
+      border: 1px solid rgba(139, 233, 253, 0.22);
+      border-radius: 4px;
+      background: rgba(139, 233, 253, 0.075);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.018);
       font-size: 0.78rem;
       font-weight: 700;
       white-space: nowrap;
     }
 
-    .quick-stack li:nth-child(1) { background: #ff6b7a; }
-    .quick-stack li:nth-child(2) { background: #ffcb6b; }
-    .quick-stack li:nth-child(3) { background: #a3be8c; }
-    .quick-stack li:nth-child(4) { background: #8be9fd; }
-    .quick-stack li:nth-child(5) { background: #c792ea; }
+    .quick-stack li:nth-child(1) {
+      color: #ff8f9a;
+      border-color: rgba(255, 107, 122, 0.26);
+      background: rgba(255, 107, 122, 0.075);
+    }
+
+    .quick-stack li:nth-child(2) {
+      color: #ffd47f;
+      border-color: rgba(255, 203, 107, 0.28);
+      background: rgba(255, 203, 107, 0.075);
+    }
+
+    .quick-stack li:nth-child(3) {
+      color: #b6cca4;
+      border-color: rgba(163, 190, 140, 0.28);
+      background: rgba(163, 190, 140, 0.075);
+    }
+
+    .quick-stack li:nth-child(5) {
+      color: #d7b4f2;
+      border-color: rgba(199, 146, 234, 0.26);
+      background: rgba(199, 146, 234, 0.075);
+    }
 
     section {
       margin: 0 0 2.65rem;
@@ -278,10 +336,7 @@
       margin-bottom: 1.15rem;
       font-size: clamp(1rem, 3vw, 1.15rem);
       letter-spacing: -0.035em;
-      color: transparent;
-      background: var(--rainbow);
-      -webkit-background-clip: text;
-      background-clip: text;
+      color: var(--accent);
       filter: drop-shadow(0 0 0.65rem rgba(139, 233, 253, 0.12));
     }
 
@@ -294,12 +349,9 @@
       opacity: 0.62;
       background:
         repeating-linear-gradient(90deg,
-          rgba(255, 107, 122, 0.70) 0 0.38rem,
-          rgba(255, 203, 107, 0.70) 0.38rem 0.76rem,
-          rgba(163, 190, 140, 0.70) 0.76rem 1.14rem,
-          rgba(139, 233, 253, 0.70) 1.14rem 1.52rem,
-          rgba(199, 146, 234, 0.70) 1.52rem 1.90rem,
-          transparent 1.90rem 2.35rem);
+          rgba(139, 233, 253, 0.28) 0 0.38rem,
+          rgba(139, 233, 253, 0.10) 0.38rem 0.76rem,
+          transparent 0.76rem 1.15rem);
       -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 88%);
       mask-image: linear-gradient(90deg, #000 0%, transparent 88%);
     }
@@ -341,9 +393,8 @@
     }
 
     h2 {
-      font-family: "Big Blue Terminal", "Fira Code", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-weight: 400;
-      letter-spacing: -0.025em;
+      font-weight: 700;
+      letter-spacing: -0.04em;
       font-size: clamp(1.24rem, 4vw, 1.62rem);
     }
 
@@ -419,6 +470,10 @@
 
       main {
         padding: 1.15rem;
+      }
+
+      body::before {
+        opacity: 0.14;
       }
 
       .terminal-block {
@@ -561,15 +616,18 @@
         "%c" + asciiLogo,
         "color:#8be9fd; background:#0f111a; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-weight:700; text-shadow:0 0 8px rgba(139,233,253,.45); line-height:1.15;"
       );
+      const consoleBadgeBase = "background:#e5e7eb;line-height:1.4;text-shadow:none;";
+      const consoleBadgeStart = `${consoleBadgeBase}padding:2px 3px 2px 5px;border-radius:4px 0 0 4px;`;
+      const consoleBadgeEnd = `${consoleBadgeBase}padding:2px 5px 2px 3px;border-radius:0 4px 4px 0;`;
       const consoleStyles = {
-        indexRed: "color:#b4233a;font-weight:700;",
-        indexAmber: "color:#8a5a00;font-weight:700;",
-        indexGreen: "color:#1f6f3d;font-weight:700;",
-        heading: "color:#111827;font-weight:700;",
-        labelUrl: "color:#005f73;font-weight:700;",
-        labelSignal: "color:#1f6f3d;font-weight:700;",
-        labelIntel: "color:#5b21b6;font-weight:700;",
-        value: "color:#111827;font-weight:500;"
+        indexRed: `${consoleBadgeStart}color:#b4233a;font-weight:700;`,
+        indexAmber: `${consoleBadgeStart}color:#8a5a00;font-weight:700;`,
+        indexGreen: `${consoleBadgeStart}color:#1f6f3d;font-weight:700;`,
+        heading: `${consoleBadgeEnd}color:#111827;font-weight:700;`,
+        labelUrl: `${consoleBadgeStart}color:#005f73;font-weight:700;`,
+        labelSignal: `${consoleBadgeStart}color:#1f6f3d;font-weight:700;`,
+        labelIntel: `${consoleBadgeStart}color:#5b21b6;font-weight:700;`,
+        value: `${consoleBadgeEnd}color:#111827;font-weight:500;`
       };
       console.groupCollapsed("🔍 [SECURE DATA RETRIEVED]: Classified Side Projects");
       console.groupCollapsed("%c01.%c n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
