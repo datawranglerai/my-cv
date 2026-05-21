@@ -23,8 +23,8 @@
       --chrome: rgba(34, 39, 55, 0.92);
       --chrome-line: rgba(255, 255, 255, 0.08);
       --text: #d8dee9;
-      --muted: #8f9aae;
-      --dim: #697386;
+      --muted: #a7b1c2;
+      --dim: #909bad;
       --prompt: #8be9fd;
       --accent: #ffcb6b;
       --accent-2: #c792ea;
@@ -560,19 +560,29 @@
         "%c" + asciiLogo,
         "color:#8be9fd; background:#0f111a; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-weight:700; text-shadow:0 0 8px rgba(139,233,253,.45); line-height:1.15;"
       );
+      const consoleStyles = {
+        indexRed: "color:#b4233a;font-weight:700;",
+        indexAmber: "color:#8a5a00;font-weight:700;",
+        indexGreen: "color:#1f6f3d;font-weight:700;",
+        heading: "color:#111827;font-weight:700;",
+        labelUrl: "color:#005f73;font-weight:700;",
+        labelSignal: "color:#1f6f3d;font-weight:700;",
+        labelIntel: "color:#5b21b6;font-weight:700;",
+        value: "color:#111827;font-weight:500;"
+      };
       console.groupCollapsed("🔍 [SECURE DATA RETRIEVED]: Classified Side Projects");
-      console.groupCollapsed("%c01.%c n8n Self-Hosting Repository", "color:#ff6b7a;font-weight:700;", "color:#d8dee9;font-weight:700;");
-      console.log("%cURL:%c https://github.com/datawranglerai/self-host-n8n-on-gcr", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
-      console.log("%cSignal:%c 600+ GitHub Stars", "color:#a3be8c;font-weight:700;", "color:#d8dee9;");
-      console.log("%cIntel:%c Includes direct contributions from the Google Cloud Run team in Silicon Valley.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupCollapsed("%c01.%c n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
+      console.log("%cURL:%c https://github.com/datawranglerai/self-host-n8n-on-gcr", consoleStyles.labelUrl, consoleStyles.value);
+      console.log("%cSignal:%c 600+ GitHub Stars", consoleStyles.labelSignal, consoleStyles.value);
+      console.log("%cIntel:%c Includes direct contributions from the Google Cloud Run team in Silicon Valley.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
-      console.groupCollapsed("%c02.%c where was i?", "color:#ffcb6b;font-weight:700;", "color:#d8dee9;font-weight:700;");
-      console.log("%cURL:%c https://app.wherewasi.co.uk", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
-      console.log("%cIntel:%c Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupCollapsed("%c02.%c where was i?", consoleStyles.indexAmber, consoleStyles.heading);
+      console.log("%cURL:%c https://app.wherewasi.co.uk", consoleStyles.labelUrl, consoleStyles.value);
+      console.log("%cIntel:%c Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
-      console.groupCollapsed("%c03.%c Talk Data To Me", "color:#a3be8c;font-weight:700;", "color:#d8dee9;font-weight:700;");
-      console.log("%cURL:%c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", "color:#8be9fd;font-weight:700;", "color:#d8dee9;");
-      console.log("%cIntel:%c DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", "color:#c792ea;font-weight:700;", "color:#d8dee9;");
+      console.groupCollapsed("%c03.%c Talk Data To Me", consoleStyles.indexGreen, consoleStyles.heading);
+      console.log("%cURL:%c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", consoleStyles.labelUrl, consoleStyles.value);
+      console.log("%cIntel:%c DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
       console.groupEnd();
 
