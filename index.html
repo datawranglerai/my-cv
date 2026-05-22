@@ -273,6 +273,34 @@
       font-weight: 600;
     }
 
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      margin: 0.55rem 0 0;
+      color: var(--dim);
+      font-size: 0.88rem;
+    }
+
+    .contact-line::before {
+      content: "$";
+      color: var(--accent);
+    }
+
+    .contact-line a {
+      color: var(--prompt);
+      font-weight: 600;
+    }
+
+    .contact-line a + a::before {
+      content: "|";
+      margin-right: 0.55rem;
+      color: var(--dim);
+      font-weight: 400;
+      border-bottom: 0;
+    }
+
     .summary {
       max-width: 70ch;
       margin-top: 1rem;
@@ -510,6 +538,11 @@
           <h1>James Wolman</h1>
           <p class="typing-line" data-type-text="&gt; ./load_profile.sh --person james_wolman" aria-label="Loading James Wolman's profile"></p>
           <p class="role">Head of Data Science</p>
+          <p class="contact-line">
+            <span>connect</span>
+            <a href="https://www.linkedin.com/in/jameswolman/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jameswolman</a>
+            <a href="mailto:hello@jameswolman.dev">hello@jameswolman.dev</a>
+          </p>
           <p class="summary">
             I build data science and AI capabilities from scratch. The job sits between hands-on engineering and intelligence strategy, which suits me. I've spent most of the last decade turning vague “we should do something with AI” briefs into systems that actually run in production, win pitches, and survive contact with real clients across nine industries.
           </p>
@@ -547,14 +580,16 @@
               Architected and scaled the agency's data science function from zero to a fully operational, multidisciplinary practice. Operating as a builder-theorist, balancing hands-on engineering of production-grade ML systems with defining the overarching data science and intelligence strategy for the entire organization.
             </p>
             <ul class="achievement-list">
-              <li><strong>Corporate Intelligence Strategy:</strong> Define and steer the agency's long-term data science and AI strategy, aligning technical capabilities with commercial objectives and market positioning across 9 distinct client industries.</li>
+              <li><strong>Corporate Intelligence Strategy:</strong> Define and steer the agency's long-term data science and AI strategy, aligning technical capabilities with commercial objectives and market positioning across 18+ distinct client industries.</li>
               <li><strong>Zero-to-One Practice Leadership:</strong> Built and managed a 7-person cross-functional team of ML/Data/Cloud Engineers, Solution Architects, and Analysts, overseeing distributed talent across locations including London and Romania. Instituted rigorous career development frameworks, agile cadences, and continuous direct-feedback loops.</li>
-              <li><strong>Engineering Culture &amp; Security:</strong> Authored the Secure Development Lifecycle (SDLC) and core cloud policies, driving the technical requirements for the organization's ISO27001 compliance. Standardized foundational engineering workflows, including version control and containerized deployments using Bitbucket and Docker orchestration.</li>
+              <li><strong>Engineering Culture &amp; Security:</strong> Authored the Secure Development Lifecycle (SDLC) and core cloud policies, leading the technical requirements for the organization's successful ISO27001 certification. Standardized foundational engineering workflows, including version control and containerized deployments using Bitbucket and Docker orchestration.</li>
               <li><strong>Commercial Frameworks:</strong> Championed a proprietary commercial framework, establishing a culture that fiercely protects engineering time and values strategic problem-solving over raw output.</li>
               <li><strong>Enterprise Product Architecture (Luminr):</strong> Single-handedly architected the original codebase for Luminr, scaling it into an enterprise product capable of analyzing hundreds of millions of search results across Google, Amazon, and TikTok. Successfully took the product to the Web Summit AI startup showcase twice.</li>
+              <li><strong>Measurable Client Impact:</strong> DS-led engagements have delivered £12.1M predicted incremental revenue from optimised media planning (West Midlands Railway), 5M+ documents processed at 98% accuracy (Dashly), a 4x conversion rate uplift (Clermont Hotel Group), and a 12% revenue recovery via first-party data capture (Newmarket).</li>
               <li><strong>High-Performance Production ML:</strong> Designed and shipped highly optimized, client-facing ML systems, including a FastAPI + Vertex AI inference pipeline deployed on Cloud Run. Optimized heavy text embedding models to achieve sub-100ms latency for a platform processing millions of daily hits, alongside developing models utilizing isotonic regression calibration.</li>
               <li><strong>Agentic AI Strategy &amp; Innovation:</strong> Leading the internal agentic AI strategy to develop an interconnected system of operational agents, architecting complex LLM orchestration pipelines using frameworks like LiteLLM, Claude Code, and Memgraph graph databases.</li>
-              <li><strong>Proprietary IP &amp; Tech for Good:</strong> Designed, architected, and co-implemented a multi-agent AI maturity evaluation framework that now serves as a primary commercial USP. Actively shaping the principles and leading technical execution for the agency's AI for Good initiatives.</li>
+              <li><strong>Proprietary IP &amp; Tech for Good:</strong> Designed, architected, and co-implemented AIME, a proprietary multi-agent AI maturity evaluation framework that benchmarks organizational AI readiness across capability, governance, and deployment dimensions. Now a primary commercial USP, deployed across client engagements spanning RegTech, Professional Services, and enterprise software. Actively shaping the principles and leading technical execution for the agency's AI for Good initiatives.</li>
+              <li><strong>Core Technologies:</strong> Python (FastAPI, scikit-learn, PyTorch, LangChain/LangGraph, LiteLLM), GCP (Vertex AI, Cloud Run, BigQuery, Cloud Storage), Docker, MLflow, dbt, Memgraph, Claude Code, Bitbucket.</li>
             </ul>
           </div>
 
