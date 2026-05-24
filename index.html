@@ -293,6 +293,13 @@
       font-weight: 600;
     }
 
+    .contact-line a:hover,
+    .contact-line a:focus-visible {
+      color: var(--bg);
+      background: var(--prompt);
+      border-bottom-color: var(--prompt);
+    }
+
     .contact-line a + a::before {
       content: "|";
       margin-right: 0.55rem;
@@ -322,7 +329,7 @@
       padding: 0.36rem 0.62rem;
       color: var(--prompt);
       border: 1px solid rgba(139, 233, 253, 0.22);
-      border-radius: 4px;
+      border-radius: 0;
       background: rgba(139, 233, 253, 0.075);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.018);
       font-size: 0.78rem;
@@ -405,7 +412,7 @@
     }
 
     li {
-      margin: 0.62rem 0;
+      margin: 0.62rem 0 0.8rem;
       padding-left: 0.18rem;
     }
 
