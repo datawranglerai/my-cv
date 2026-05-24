@@ -119,7 +119,7 @@
       --link-border: rgba(139, 233, 253, 0.42);
       --command-stripe-strong: rgba(139, 233, 253, 0.28);
       --command-stripe-soft: rgba(139, 233, 253, 0.10);
-      --hero-line: rgba(255, 255, 255, 0.07);
+      --section-line: rgba(255, 255, 255, 0.07);
       --block-line: rgba(216, 222, 233, 0.13);
       --selection-text: #0f111a;
     }
@@ -164,7 +164,7 @@
       --link-border: rgba(0, 109, 143, 0.38);
       --command-stripe-strong: rgba(0, 109, 143, 0.30);
       --command-stripe-soft: rgba(0, 109, 143, 0.10);
-      --hero-line: rgba(15, 23, 42, 0.10);
+      --section-line: rgba(15, 23, 42, 0.10);
       --block-line: rgba(15, 23, 42, 0.15);
       --selection-text: #ffffff;
     }
@@ -221,6 +221,16 @@
     a:focus-visible {
       color: var(--link-hover);
       border-bottom-color: currentColor;
+    }
+
+    main a:not(.contact-line a):hover,
+    main a:not(.contact-line a):focus-visible {
+      color: var(--selection-text);
+      background: var(--prompt);
+      border-bottom-color: var(--prompt);
+      box-shadow:
+        0.18rem 0 0 var(--prompt),
+        -0.18rem 0 0 var(--prompt);
     }
 
     .page-shell {
@@ -397,7 +407,7 @@
     .hero {
       padding-bottom: 2.25rem;
       margin-bottom: 2.25rem;
-      border-bottom: 1px solid var(--hero-line);
+      border-bottom: 1px solid var(--section-line);
     }
 
     .eyebrow,
@@ -581,6 +591,11 @@
       scroll-margin-top: 1rem;
     }
 
+    section + section {
+      padding-top: 2.35rem;
+      border-top: 1px solid var(--section-line);
+    }
+
     .section-command {
       width: 100%;
       margin-bottom: 1.15rem;
@@ -624,6 +639,46 @@
     .achievement-list {
       padding-left: 1.05rem;
       margin: 0.85rem 0 0;
+    }
+
+    .signal-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .signal-item {
+      display: grid;
+      grid-template-columns: 6.6rem minmax(0, 1fr);
+      gap: 0.85rem;
+      margin: 0.95rem 0 0;
+      padding: 0;
+    }
+
+    .signal-date {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .signal-link {
+      color: var(--prompt);
+      font-weight: 700;
+      border-bottom-style: solid;
+    }
+
+    .signal-meta {
+      margin: 0.28rem 0 0.35rem;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .signal-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     li {
@@ -678,7 +733,7 @@
       padding-top: 1.6rem;
       margin-top: 2rem;
       color: var(--dim);
-      border-top: 1px solid var(--hero-line);
+      border-top: 1px solid var(--section-line);
       font-size: 0.82rem;
     }
 
@@ -720,6 +775,11 @@
 
       .theme-toggle__label {
         display: none;
+      }
+
+      .signal-item {
+        grid-template-columns: 1fr;
+        gap: 0.16rem;
       }
 
       main {
@@ -810,6 +870,38 @@
               <li><strong>BIMA Trailblazer</strong>, recognised by the British Interactive Media Association.</li>
               <li><strong>Multiple Best Use of Data awards</strong> across the UK Search Awards, UK Business Tech Awards, UK Digital Growth Awards, and Google.</li>
               <li><strong>Work featured in a 2024 Channel 4 documentary</strong> on cultural analysis.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="thought-leadership" aria-labelledby="thought-leadership-heading">
+          <div class="section-command" id="thought-leadership-heading">/thought-leadership$ ./fetch_publications.sh --source=techUK</div>
+          <div class="terminal-block">
+            <ul class="signal-list">
+              <li class="signal-item">
+                <time class="signal-date" datetime="2025-09-04">2025-09-04</time>
+                <div>
+                  <a class="signal-link" href="https://www.techuk.org/resource/beyond-the-hype-building-ai-that-solves-the-problems-we-need-solved.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_ai_problems_clicked">Building AI That Solves the Problems We Need Solved</a>
+                  <p class="signal-meta">techUK Industry view | by James Wolman</p>
+                  <p class="signal-summary">Public argument for AI that amplifies human capability instead of simply automating the past.</p>
+                </div>
+              </li>
+              <li class="signal-item">
+                <time class="signal-date" datetime="2025-05-15">2025-05-15</time>
+                <div>
+                  <a class="signal-link" href="https://www.techuk.org/resource/beyond-the-hype-cloud-analytics-ai-and-the-uk-s-productivity-challenge.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_productivity_clicked">Cloud Analytics, AI, and the UK's Productivity Challenge</a>
+                  <p class="signal-meta">techUK Industry view | by James Wolman</p>
+                  <p class="signal-summary">A pragmatic view of cloud analytics and AI as practical infrastructure for better decisions and measurable productivity.</p>
+                </div>
+              </li>
+              <li class="signal-item">
+                <time class="signal-date" datetime="2025-05-27">2025-05-27</time>
+                <div>
+                  <a class="signal-link" href="https://www.techuk.org/resource/watch-now-the-data-driven-workplace-unlocking-the-value-of-data-through-cloud-enabled-solutions.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_panel_video_clicked">Watch now: The data-driven workplace: unlocking the value of data through cloud-enabled solutions</a>
+                  <p class="signal-meta">techUK panel recording | speaker, Head of Data Science at Braidr</p>
+                  <p class="signal-summary">Panel contribution on extracting value from data through cloud-enabled solutions in the modern workplace.</p>
+                </div>
+              </li>
             </ul>
           </div>
         </section>
