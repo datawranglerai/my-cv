@@ -685,6 +685,68 @@
       font-size: 0.92rem;
     }
 
+    .signal-more {
+      margin-top: 0.55rem;
+      font-size: 0.84rem;
+    }
+
+    .signal-more summary {
+      width: fit-content;
+      color: var(--prompt);
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .signal-more summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .signal-more summary:hover,
+    .signal-more summary:focus-visible {
+      color: var(--selection-text);
+      background: var(--prompt);
+      outline: 0;
+      box-shadow:
+        0.18rem 0 0 var(--prompt),
+        -0.18rem 0 0 var(--prompt);
+    }
+
+    .signal-more summary::before {
+      content: "+";
+      color: var(--accent);
+    }
+
+    .signal-more summary:hover::before,
+    .signal-more summary:focus-visible::before {
+      color: inherit;
+    }
+
+    .signal-more[open] summary::before {
+      content: "−";
+    }
+
+    .signal-more-list {
+      margin: 0.45rem 0 0;
+      padding: 0.1rem 0 0 0.75rem;
+      border-left: 1px dashed var(--block-line);
+      list-style: none;
+    }
+
+    .signal-more-item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0.65rem;
+      margin: 0.4rem 0 0;
+      padding: 0;
+    }
+
+    .signal-more-date {
+      color: var(--accent);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
     li {
       margin: 0.62rem 0 0.8rem;
       padding-left: 0.18rem;
@@ -883,11 +945,24 @@
           <div class="terminal-block">
             <ul class="signal-list">
               <li class="signal-item">
-                <time class="signal-date" datetime="2025-09-04">2025-09-04</time>
+                <time class="signal-date" datetime="2026-07-07">2026-07-07</time>
                 <div>
-                  <a class="signal-link" href="https://www.techuk.org/resource/beyond-the-hype-building-ai-that-solves-the-problems-we-need-solved.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_ai_problems_clicked">Building AI That Solves the Problems We Need Solved</a>
+                  <a class="signal-link" href="https://www.techuk.org/resource/the-safeguard-that-s-eating-itself.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_ai_safeguard_clicked">The Safeguard That’s Eating Itself</a>
                   <p class="signal-meta">techUK Industry view | by James Wolman</p>
-                  <p class="signal-summary">Public argument for AI that amplifies human capability instead of simply automating the past.</p>
+                  <p class="signal-summary">Why agentic AI risks eroding the human judgement organisations rely on to catch its failures.</p>
+                  <details class="signal-more">
+                    <summary>2 more techUK articles</summary>
+                    <ul class="signal-more-list">
+                      <li class="signal-more-item">
+                        <time class="signal-more-date" datetime="2025-09-04">2025-09-04</time>
+                        <a href="https://www.techuk.org/resource/beyond-the-hype-building-ai-that-solves-the-problems-we-need-solved.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_ai_problems_clicked">Building AI That Solves the Problems We Need Solved</a>
+                      </li>
+                      <li class="signal-more-item">
+                        <time class="signal-more-date" datetime="2025-05-15">2025-05-15</time>
+                        <a href="https://www.techuk.org/resource/beyond-the-hype-cloud-analytics-ai-and-the-uk-s-productivity-challenge.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_productivity_clicked">Cloud Analytics, AI, and the UK's Productivity Challenge</a>
+                      </li>
+                    </ul>
+                  </details>
                 </div>
               </li>
               <li class="signal-item">
@@ -896,14 +971,6 @@
                   <a class="signal-link" href="https://www.techuk.org/resource/watch-now-the-data-driven-workplace-unlocking-the-value-of-data-through-cloud-enabled-solutions.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_panel_video_clicked">Watch now: The data-driven workplace: unlocking the value of data through cloud-enabled solutions</a>
                   <p class="signal-meta">techUK panel recording | speaker, Head of Data Science at Braidr</p>
                   <p class="signal-summary">Panel contribution on extracting value from data through cloud-enabled solutions in the modern workplace.</p>
-                </div>
-              </li>
-              <li class="signal-item">
-                <time class="signal-date" datetime="2025-05-15">2025-05-15</time>
-                <div>
-                  <a class="signal-link" href="https://www.techuk.org/resource/beyond-the-hype-cloud-analytics-ai-and-the-uk-s-productivity-challenge.html" target="_blank" rel="noopener noreferrer" data-goatcounter-click="techuk_productivity_clicked">Cloud Analytics, AI, and the UK's Productivity Challenge</a>
-                  <p class="signal-meta">techUK Industry view | by James Wolman</p>
-                  <p class="signal-summary">A pragmatic view of cloud analytics and AI as practical infrastructure for better decisions and measurable productivity.</p>
                 </div>
               </li>
               <li class="signal-item">
