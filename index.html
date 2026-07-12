@@ -1104,44 +1104,49 @@
 
   <script>
     (() => {
-      const asciiLogo = String.raw`
-       ██╗ █████╗ ███╗   ███╗███████╗███████╗    ██╗    ██╗ ██████╗ ██╗     ███╗   ███╗ █████╗ ███╗   ██╗
-       ██║██╔══██╗████╗ ████║██╔════╝██╔════╝    ██║    ██║██╔═══██╗██║     ████╗ ████║██╔══██╗████╗  ██║
-       ██║███████║██╔████╔██║█████╗  ███████╗    ██║ █╗ ██║██║   ██║██║     ██╔████╔██║███████║██╔██╗ ██║
-  ██   ██║██╔══██║██║╚██╔╝██║██╔══╝  ╚════██║    ██║███╗██║██║   ██║██║     ██║╚██╔╝██║██╔══██║██║╚██╗██║
-  ╚█████╔╝██║  ██║██║ ╚═╝ ██║███████╗███████║    ╚███╔███╔╝╚██████╔╝███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
-   ╚════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝     ╚══╝╚══╝  ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝`;
-
-      console.log(
-        "%c" + asciiLogo,
-        "color:#8be9fd; background:#0f111a; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-weight:700; text-shadow:0 0 8px rgba(139,233,253,.45); line-height:1.15;"
-      );
-      const consoleBadgeBase = "background:#e5e7eb;line-height:1.4;text-shadow:none;";
-      const consoleBadgeStart = `${consoleBadgeBase}padding:2px 3px 2px 5px;border-radius:4px 0 0 4px;`;
-      const consoleBadgeEnd = `${consoleBadgeBase}padding:2px 5px 2px 3px;border-radius:0 4px 4px 0;`;
-      const consoleStyles = {
-        indexRed: `${consoleBadgeStart}color:#b4233a;font-weight:700;`,
-        indexAmber: `${consoleBadgeStart}color:#8a5a00;font-weight:700;`,
-        indexGreen: `${consoleBadgeStart}color:#1f6f3d;font-weight:700;`,
-        heading: `${consoleBadgeEnd}color:#111827;font-weight:700;`,
-        labelUrl: `${consoleBadgeStart}color:#005f73;font-weight:700;`,
-        labelSignal: `${consoleBadgeStart}color:#1f6f3d;font-weight:700;`,
-        labelIntel: `${consoleBadgeStart}color:#5b21b6;font-weight:700;`,
-        value: `${consoleBadgeEnd}color:#111827;font-weight:500;`
+      const consolePalette = {
+        surface: "#111827",
+        badgeText: "#cbd5e1",
+        identityAccent: "#67e8f9",
+        identityRose: "#fb7185",
+        muted: "#727985",
+        accent: "#147d92",
+        rose: "#d9466f",
+        amber: "#a86f13",
+        green: "#238636",
+        violet: "#9b5de5"
       };
-      console.groupCollapsed("🔍 [SECURE DATA RETRIEVED]: Classified Side Projects");
-      console.groupCollapsed("%c01.%c n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
-      console.log("%cURL:%c https://github.com/datawranglerai/self-host-n8n-on-gcr", consoleStyles.labelUrl, consoleStyles.value);
-      console.log("%cSignal:%c 600+ GitHub Stars", consoleStyles.labelSignal, consoleStyles.value);
-      console.log("%cIntel:%c Includes direct contributions from the Google Cloud Run team in Silicon Valley.", consoleStyles.labelIntel, consoleStyles.value);
+      const consoleFont = "font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;text-shadow:none;";
+      const consoleIdentity = "JAMES WOLMAN\nHEAD OF DATA SCIENCE";
+      const consoleStyles = {
+        identity: `${consoleFont}color:${consolePalette.identityAccent};background:${consolePalette.surface};border-left:3px solid ${consolePalette.identityRose};font-size:13px;font-weight:800;letter-spacing:.04em;line-height:1.5;padding:8px 12px;border-radius:0 6px 6px 0;`,
+        sectionMarker: `${consoleFont}color:${consolePalette.rose};font-weight:800;`,
+        sectionHeading: `${consoleFont}font-weight:800;letter-spacing:.04em;`,
+        sectionCount: `${consoleFont}color:${consolePalette.badgeText};background:${consolePalette.surface};font-weight:700;padding:2px 6px;border-radius:999px;`,
+        indexRed: `${consoleFont}color:${consolePalette.rose};font-weight:800;`,
+        indexAmber: `${consoleFont}color:${consolePalette.amber};font-weight:800;`,
+        indexGreen: `${consoleFont}color:${consolePalette.green};font-weight:800;`,
+        heading: `${consoleFont}font-weight:700;`,
+        label: `${consoleFont}color:${consolePalette.muted};font-weight:700;letter-spacing:.03em;`,
+        labelIntel: `${consoleFont}color:${consolePalette.violet};font-weight:700;letter-spacing:.03em;`,
+        url: `${consoleFont}color:${consolePalette.accent};font-weight:500;`,
+        signal: `${consoleFont}color:${consolePalette.green};font-weight:600;`,
+        value: `${consoleFont}font-weight:400;`
+      };
+      console.log("%c" + consoleIdentity, consoleStyles.identity);
+      console.groupCollapsed("%c◆%c  SIDE PROJECTS%c  3 BUILDS", consoleStyles.sectionMarker, consoleStyles.sectionHeading, consoleStyles.sectionCount);
+      console.groupCollapsed("%c01%c  n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
+      console.log("%c  URL   %c https://github.com/datawranglerai/self-host-n8n-on-gcr", consoleStyles.label, consoleStyles.url);
+      console.log("%c  SIGNAL%c  600+ GitHub Stars", consoleStyles.label, consoleStyles.signal);
+      console.log("%c  INTEL %c  Includes direct contributions from the Google Cloud Run team in Silicon Valley.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
-      console.groupCollapsed("%c02.%c where was i?", consoleStyles.indexAmber, consoleStyles.heading);
-      console.log("%cURL:%c https://app.wherewasi.co.uk", consoleStyles.labelUrl, consoleStyles.value);
-      console.log("%cIntel:%c Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", consoleStyles.labelIntel, consoleStyles.value);
+      console.groupCollapsed("%c02%c  where was i?", consoleStyles.indexAmber, consoleStyles.heading);
+      console.log("%c  URL   %c https://app.wherewasi.co.uk", consoleStyles.label, consoleStyles.url);
+      console.log("%c  INTEL %c  Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
-      console.groupCollapsed("%c03.%c Talk Data To Me", consoleStyles.indexGreen, consoleStyles.heading);
-      console.log("%cURL:%c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", consoleStyles.labelUrl, consoleStyles.value);
-      console.log("%cIntel:%c DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
+      console.groupCollapsed("%c03%c  Talk Data To Me", consoleStyles.indexGreen, consoleStyles.heading);
+      console.log("%c  URL   %c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", consoleStyles.label, consoleStyles.url);
+      console.log("%c  INTEL %c  DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
       console.groupEnd();
 
