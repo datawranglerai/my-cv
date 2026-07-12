@@ -1126,6 +1126,7 @@
         indexRed: `${consoleFont}color:${consolePalette.rose};font-weight:800;`,
         indexAmber: `${consoleFont}color:${consolePalette.amber};font-weight:800;`,
         indexGreen: `${consoleFont}color:${consolePalette.green};font-weight:800;`,
+        indexViolet: `${consoleFont}color:${consolePalette.violet};font-weight:800;`,
         heading: `${consoleFont}font-weight:700;`,
         label: `${consoleFont}color:${consolePalette.muted};font-weight:700;letter-spacing:.03em;`,
         labelIntel: `${consoleFont}color:${consolePalette.violet};font-weight:700;letter-spacing:.03em;`,
@@ -1134,7 +1135,7 @@
         value: `${consoleFont}font-weight:400;`
       };
       console.log("%c" + consoleIdentity, consoleStyles.identity);
-      console.groupCollapsed("%c◆%c  SIDE PROJECTS%c  3 BUILDS", consoleStyles.sectionMarker, consoleStyles.sectionHeading, consoleStyles.sectionCount);
+      console.groupCollapsed("%c◆%c  SIDE PROJECTS%c  4 BUILDS", consoleStyles.sectionMarker, consoleStyles.sectionHeading, consoleStyles.sectionCount);
       console.groupCollapsed("%c01%c  n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
       console.log("%c  URL   %c https://github.com/datawranglerai/self-host-n8n-on-gcr", consoleStyles.label, consoleStyles.url);
       console.log("%c  SIGNAL%c  600+ GitHub Stars", consoleStyles.label, consoleStyles.signal);
@@ -1147,6 +1148,10 @@
       console.groupCollapsed("%c03%c  Talk Data To Me", consoleStyles.indexGreen, consoleStyles.heading);
       console.log("%c  URL   %c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", consoleStyles.label, consoleStyles.url);
       console.log("%c  INTEL %c  DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
+      console.groupEnd();
+      console.groupCollapsed("%c04%c  Mortgage Overpayment Calculator", consoleStyles.indexViolet, consoleStyles.heading);
+      console.log("%c  URL   %c https://datawranglerai.github.io/overpayment-calculator/", consoleStyles.label, consoleStyles.url);
+      console.log("%c  INTEL %c  A simple mortgage overpayment calculator created to help manage my personal finances.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
       console.groupEnd();
 
