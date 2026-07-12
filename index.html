@@ -1127,6 +1127,7 @@
         indexAmber: `${consoleFont}color:${consolePalette.amber};font-weight:800;`,
         indexGreen: `${consoleFont}color:${consolePalette.green};font-weight:800;`,
         indexViolet: `${consoleFont}color:${consolePalette.violet};font-weight:800;`,
+        indexCyan: `${consoleFont}color:${consolePalette.accent};font-weight:800;`,
         heading: `${consoleFont}font-weight:700;`,
         label: `${consoleFont}color:${consolePalette.muted};font-weight:700;letter-spacing:.03em;`,
         labelIntel: `${consoleFont}color:${consolePalette.violet};font-weight:700;letter-spacing:.03em;`,
@@ -1135,7 +1136,7 @@
         value: `${consoleFont}font-weight:400;`
       };
       console.log("%c" + consoleIdentity, consoleStyles.identity);
-      console.groupCollapsed("%c◆%c  SIDE PROJECTS%c  4 BUILDS", consoleStyles.sectionMarker, consoleStyles.sectionHeading, consoleStyles.sectionCount);
+      console.groupCollapsed("%c◆%c  SIDE PROJECTS%c  5 BUILDS", consoleStyles.sectionMarker, consoleStyles.sectionHeading, consoleStyles.sectionCount);
       console.groupCollapsed("%c01%c  n8n Self-Hosting Repository", consoleStyles.indexRed, consoleStyles.heading);
       console.log("%c  URL   %c https://github.com/datawranglerai/self-host-n8n-on-gcr", consoleStyles.label, consoleStyles.url);
       console.log("%c  SIGNAL%c  600+ GitHub Stars", consoleStyles.label, consoleStyles.signal);
@@ -1152,6 +1153,11 @@
       console.groupCollapsed("%c04%c  Mortgage Overpayment Calculator", consoleStyles.indexViolet, consoleStyles.heading);
       console.log("%c  URL   %c https://datawranglerai.github.io/overpayment-calculator/", consoleStyles.label, consoleStyles.url);
       console.log("%c  INTEL %c  A simple mortgage overpayment calculator created to help manage my personal finances.", consoleStyles.labelIntel, consoleStyles.value);
+      console.groupEnd();
+      console.groupCollapsed("%c05%c  Declassified Reclassified", consoleStyles.indexCyan, consoleStyles.heading);
+      console.log("%c  URL   %c https://gist.github.com/datawranglerai/c293db77f456f2f1130874b3a5e0291e", consoleStyles.label, consoleStyles.url);
+      console.log("%c  SIGNAL%c  20 evidence records with claim-level citations", consoleStyles.label, consoleStyles.signal);
+      console.log("%c  INTEL %c  Provenance-first, skeptical Python pipeline that turns messy mixed-media UAP releases into auditable SQLite-backed analysis and reports.", consoleStyles.labelIntel, consoleStyles.value);
       console.groupEnd();
       console.groupEnd();
 
