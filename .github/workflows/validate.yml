@@ -1,0 +1,16 @@
+name: Validate site
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  goatcounter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate GoatCounter link tracking
+        run: python3 scripts/validate_goatcounter.py
