@@ -1,0 +1,20 @@
+{
+  "name": "jameswolman-cv",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "validate": "python3 scripts/validate_site.py && python3 scripts/validate_goatcounter.py",
+    "test": "npm run build && npm run validate"
+  },
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0",
+    "npm": ">=9.6.5"
+  },
+  "dependencies": {
+    "astro": "7.3.2"
+  }
+}

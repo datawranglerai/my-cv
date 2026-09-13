@@ -3,14 +3,37 @@ name: Validate site
 on:
   pull_request:
   push:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  goatcounter:
+  build:
     runs-on: ubuntu-latest
+    env:
+      ASTRO_TELEMETRY_DISABLED: 1
     steps:
-      - uses: actions/checkout@v6
-      - name: Validate GoatCounter link tracking
-        run: python3 scripts/validate_goatcounter.py
+      - uses: actions/checkout@v7
+      - name: Build and upload static site
+        uses: withastro/action@v6
+      - name: Validate routes, CV content and analytics
+        run: npm run validate
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
