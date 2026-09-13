@@ -5,3 +5,7 @@
 .omx
 .omc
 screenshots/
+node_modules/
+dist/
+.astro/
+__pycache__/

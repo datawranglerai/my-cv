@@ -1,0 +1,12 @@
+---
+import ExternalLink from './ExternalLink.astro';
+const { eventPrefix = 'portfolio' } = Astro.props;
+---
+
+<footer class="portfolio-footer">
+  <p class="footer-invitation">Have a role or a project in mind?</p>
+  <p class="footer-links">
+    <ExternalLink href="mailto:hello@jameswolman.dev" label="Get in touch" event={`${eventPrefix}_email_clicked`} />
+    <ExternalLink href="https://www.linkedin.com/in/jameswolman/" label="LinkedIn" event={`${eventPrefix}_linkedin_clicked`} />
+  </p>
+</footer>

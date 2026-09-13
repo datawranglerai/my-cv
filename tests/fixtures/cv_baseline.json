@@ -1,0 +1,49 @@
+{
+  "hero": "profile --loaded James Wolman Head of Data Science connect linkedin.com/in/jameswolman hello@jameswolman.dev I build data science and AI capabilities from scratch. The job sits between hands-on engineering and intelligence strategy, which suits me. I've spent most of the last decade turning vague “we should do something with AI” briefs into systems that actually run in production, win pitches, and survive contact with real clients across 18+ industries. Sceptical of AI hype, genuinely excited about the parts that work. Most companies don't need agents (yet), and the ones that do usually need plumbing first. AI strategy Production ML Cloud architecture Data science leadership Commercial intelligence",
+  "sections": {
+    "recognition": "/recognition$ cat awards.log £20K Fanatics Brand Challenge winner , MAD//Fest 2024. Open-format innovation challenge. BIMA Trailblazer (British Interactive Media Association). Multiple Best Use of Data awards across the UK Search Awards, UK Business Tech Awards, UK Digital Growth Awards, and Google. Work featured in a 2024 Channel 4 documentary on cultural analysis.",
+    "shipped": "/shipped$ ls public_work/ 2026-07-14 AI.M.E. FTSE 350 AI Maturity Study Braidr | architect and technical lead Multi-agent research system, built on Google's Agent Development Kit, that benchmarked the AI maturity of every FTSE 350 company from 1.5 million words of public evidence. No surveys, no interviews. 2026-04-17 Upstream Braidr with Fieldcraft Studios | AI for Good AI-powered audience intelligence for an antimicrobial resistance awareness campaign, built from the language distinct water-user communities actually use when they talk about AMR.",
+    "thought-leadership": "/thought-leadership$ ./fetch_publications.sh --source=techUK,IMS,Chester 2026-07-07 The Safeguard That’s Eating Itself techUK Industry view | by James Wolman Why agentic AI risks eroding the human judgement organisations rely on to catch its failures. 2 more techUK articles 2025-09-04 Building AI That Solves the Problems We Need Solved 2025-05-15 Cloud Analytics, AI, and the UK's Productivity Challenge 2025-05-27 Watch now: The data-driven workplace: unlocking the value of data through cloud-enabled solutions techUK panel recording | speaker, Head of Data Science at Braidr Panel contribution on extracting value from data through cloud-enabled solutions in the modern workplace. 2025-02-28 Guest lecture: Commercial Applications of Data Science and AI University of Chester | guest lecturer Session for students on applying data science and AI to commercial problems, decision-making, and production-facing use cases. 2023-11-24 Guest lecture: Commercial Applications of Data Science and AI University of Chester | guest lecturer Session for students on commercial data science practice, applied AI, and how analytical work creates organisational value. 2023-10-26 [VIDEO] Playing With Fire: The Threats of Deepfake Technology Influencer Marketing Show fireside chat | with Stevie Johnson, Head of Creo UK at Omnicom Media Group; former MD, Disrupt Deepfake technology, synthetic media risk, the creator economy, and practical responses to emerging AI-driven threats.",
+    "experience": "/experience$ tail -f career.log Head of Data Science Braidr (Tomorrow Group) | London | Sep 2021 – Present Built the agency's data science function from zero into a working multidisciplinary practice. Corporate Intelligence Strategy: Set and steer Braidr's long-term data science and AI strategy, and decide where it makes the agency money, across 18+ client industries. Zero-to-One Practice Leadership: Built and manage a 7-person team of ML, data, and cloud engineers, solution architects, and analysts across London and Romania. Set up how the team runs: career development, sprint rhythms, and a culture of direct feedback. Engineering Culture & Security: Authored the Secure Development Lifecycle (SDLC) and core cloud policies, leading the technical requirements for the organisation's successful ISO27001 certification. Standardised the basics: version control on Bitbucket, containerised deployments with Docker. Commercial Frameworks: Introduced the framework Braidr now scopes all projects with, which prices thinking rather than output and protects engineering time. Enterprise Product Architecture (Luminr): Single-handedly architected the original codebase for Luminr, scaling it into an enterprise product analysing hundreds of millions of search results across Google, Amazon, and TikTok. Took the product to the Web Summit AI startup showcase twice. Measurable Client Impact: DS-led engagements have delivered £12.1M predicted incremental revenue from optimised media planning (West Midlands Railway), 5M+ documents processed at 98% accuracy (Dashly), a 4x conversion rate uplift (Clermont Hotel Group), and a 12% revenue recovery via first-party data capture (Newmarket). High-Performance Production ML: Designed and shipped client-facing ML systems, including a FastAPI + Vertex AI inference pipeline on Cloud Run. Got heavy text embedding models under 100ms latency on a platform handling millions of hits a day, and used isotonic regression calibration where the output probabilities had to be trustworthy. Agentic AI Strategy & Innovation: Leading Braidr's internal agentic AI strategy: an interconnected system of operational agents, with LLM orchestration built on LiteLLM and a graph memory layer on Memgraph, developed largely through Claude Code. Proprietary IP & Tech for Good: Designed and co-built AI.M.E., Braidr's multi-agent AI maturity evaluation framework, benchmarking organisations across capability, governance, and deployment. Now central to how Braidr wins work in RegTech, professional services, and enterprise software. Also set the principles for, and lead delivery of, the agency's AI for Good work. Core Technologies: Python (FastAPI, scikit-learn, PyTorch, LangChain/LangGraph, LiteLLM), GCP (Vertex AI, Cloud Run, BigQuery, Cloud Storage), Docker, MLflow, dbt, Memgraph, Claude Code, Bitbucket. Senior Data Scientist (Progressed from Data Analyst & Data Scientist) Found (Tomorrow Group) | London, UK | Nov 2015 – Aug 2021 Six years and three job titles, ending up leading the marketing-focused data science work. Ran client insight projects end to end and drove internal R&D. Commercial Impact & Pitching: Packaged complex analysis into client-facing deliverables and presented it directly to stakeholders. The data science work became a pitch differentiator; more than one client named it as the reason they signed. Machine Learning & R&D: Engineered internal machine learning models to classify user intent, improving how campaigns were targeted. Search Demand Innovation: Developed novel statistical approaches to measure and analyse search demand, integrating these tools into the daily workflows of internal teams to drive client strategy. Technical Leadership: Mentored junior data analysts and scientists, and led cross-functional project pods, which led naturally into the Braidr role. Core Technologies: Python (pandas, NumPy, PyTorch, TensorFlow, scikit-learn), R (plyr, caret, Shiny), SQL, GCP, Data Visualisation (ggplot2, Bokeh). Freelance Science Writer The Positive | Nov 2014 – Aug 2015 Translated complex scientific and health research into accurate, accessible writing for a readership of over 80,000. Liaised directly with global research teams and evaluated methodologies. Good training for explaining why a model is wrong to a client who really wants it to be right. Analyst, Technology Division HSBC Global Banking & Markets | Aug 2013 – Dec 2014 Built VBA automation for financial data workflows and collaborated with international stakeholders to redesign the team's change control system. My first proper encounter with the gap between what technology promises and what it actually delivers under pressure.",
+    "certifications": "/certifications$ grep -i \"mental health\" qualifications.log L2 Certificate in Understanding Mental Health First Aid and Mental Health Advocacy in the Workplace Formal training in workplace mental health awareness, first aid response, and advocacy.",
+    "education": "/education$ grep -i foundations education.log MSci Human Genetics University College London (UCL) Additional Experience: Completed technical and strategic summer internships at the National Physical Laboratory (NPL) and Serco Management Consulting ."
+  },
+  "outgoing_links": [
+    {
+      "href": "https://www.linkedin.com/in/jameswolman/",
+      "label": "linkedin.com/in/jameswolman"
+    },
+    {
+      "href": "mailto:hello@jameswolman.dev",
+      "label": "hello@jameswolman.dev"
+    },
+    {
+      "href": "https://aime.braidr.ai/ftse350",
+      "label": "AI.M.E. FTSE 350 AI Maturity Study"
+    },
+    {
+      "href": "https://good.braidr.ai",
+      "label": "Upstream"
+    },
+    {
+      "href": "https://www.techuk.org/resource/the-safeguard-that-s-eating-itself.html",
+      "label": "The Safeguard That’s Eating Itself"
+    },
+    {
+      "href": "https://www.techuk.org/resource/beyond-the-hype-building-ai-that-solves-the-problems-we-need-solved.html",
+      "label": "Building AI That Solves the Problems We Need Solved"
+    },
+    {
+      "href": "https://www.techuk.org/resource/beyond-the-hype-cloud-analytics-ai-and-the-uk-s-productivity-challenge.html",
+      "label": "Cloud Analytics, AI, and the UK's Productivity Challenge"
+    },
+    {
+      "href": "https://www.techuk.org/resource/watch-now-the-data-driven-workplace-unlocking-the-value-of-data-through-cloud-enabled-solutions.html",
+      "label": "Watch now: The data-driven workplace: unlocking the value of data through cloud-enabled solutions"
+    },
+    {
+      "href": "https://youtu.be/TNqqWTOU83k",
+      "label": "[VIDEO] Playing With Fire: The Threats of Deepfake Technology"
+    }
+  ]
+}

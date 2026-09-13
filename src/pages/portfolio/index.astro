@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import TerminalLayout from '../../layouts/TerminalLayout.astro';
+import ProjectEntry from '../../components/ProjectEntry.astro';
+import ContactFooter from '../../components/ContactFooter.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<TerminalLayout title="Portfolio | James Wolman" description="Selected AI, data and research projects by James Wolman: the work, the decisions and the evidence behind it." terminalPath="~/portfolio" activePage="portfolio" pageClass="portfolio-page">
+  <header class="hero portfolio-hero">
+    <p class="eyebrow">portfolio --selected-work</p>
+    <h1>Selected work</h1>
+    <p class="role">AI, data &amp; research</p>
+    <p class="summary">I build AI systems and lead the work that brings them into use. These projects span professional programmes, personal experiments and open source: what I contributed, the decisions I made, and the evidence behind the results.</p>
+    <p class="collection-count">{projects.length} projects <span aria-hidden="true">/</span> Research · Engineering · Leadership</p>
+  </header>
+  <section aria-label="Selected projects">
+    <ol class="project-list">{projects.map(project => <ProjectEntry project={project} />)}</ol>
+  </section>
+  <ContactFooter />
+</TerminalLayout>

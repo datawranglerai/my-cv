@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { project: CollectionEntry<'projects'> }
+const { project } = Astro.props;
+const { title, summary, context, featured, status, highlights, order } = project.data;
+---
+
+<li class:list={['project-entry', { 'project-entry--featured': featured }]}>
+  <span class="project-number" aria-hidden="true">{String(order).padStart(2, '0')}</span>
+  <article aria-labelledby={`project-${project.id}`}>
+    <p class="project-kicker">
+      <span>{context}</span>
+      {featured && <span class="featured-label">Featured project</span>}
+      {status && <span>{status}</span>}
+    </p>
+    <h2 id={`project-${project.id}`}><a href={`/portfolio/projects/${project.id}/`}>{title}<span class="project-arrow" aria-hidden="true"> ↗</span></a></h2>
+    <p class="project-summary">{summary}</p>
+    {featured && highlights.length > 0 && (
+      <dl class="project-highlights">
+        {highlights.map(({ value, label }) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+      </dl>
+    )}
+    {featured && <a class="read-case-study" href={`/portfolio/projects/${project.id}/`}>Read the case study <span aria-hidden="true">→</span></a>}
+  </article>
+</li>

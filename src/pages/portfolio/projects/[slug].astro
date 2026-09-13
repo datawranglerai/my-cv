@@ -1,0 +1,48 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import TerminalLayout from '../../../layouts/TerminalLayout.astro';
+import ExternalLink from '../../../components/ExternalLink.astro';
+import ContactFooter from '../../../components/ContactFooter.astro';
+import AimeArchitecture from '../../../components/AimeArchitecture.astro';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+  return projects.map((project, index) => ({
+    params: { slug: project.id },
+    props: { project, next: projects[(index + 1) % projects.length] },
+  }));
+}
+
+interface Props { project: CollectionEntry<'projects'>; next: CollectionEntry<'projects'> }
+const { project, next } = Astro.props;
+const { title, summary, context, role, collaborators, status, tags, links, highlights } = project.data;
+const { Content, headings } = await render(project);
+const contents = headings.filter(heading => heading.depth === 2);
+---
+
+<TerminalLayout title={`${title} | James Wolman`} description={summary} terminalPath={`~/portfolio/${project.id}`} activePage="portfolio" pageClass="project-page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/portfolio/">Portfolio</a><span aria-hidden="true">/</span><span aria-current="page">{title}</span></nav>
+  <header class="hero project-hero">
+    <p class="eyebrow">{context.toLowerCase()} / case study</p>
+    <h1 class="project-title">{title}</h1>
+    <p class="summary project-intro">{summary}</p>
+    <dl class="project-details">
+      <div><dt>My role</dt><dd>{role}</dd></div>
+      {collaborators.length > 0 && <div><dt>With</dt><dd>{collaborators.join(' · ')}</dd></div>}
+      {status && <div><dt>Status</dt><dd>{status}</dd></div>}
+    </dl>
+    <ul class="project-actions">
+      {links.map((link, index) => <li><ExternalLink href={link.url} label={link.label} event={`project_${project.id}_resource_${index + 1}_clicked`} /></li>)}
+    </ul>
+    {tags.length > 0 && <ul class="project-tags" aria-label="Project themes">{tags.map(tag => <li>{tag}</li>)}</ul>}
+  </header>
+  {highlights.length > 0 && <dl class="project-highlights case-highlights">{highlights.map(({ value, label }) => <div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>}
+  {contents.length >= 3 && <nav class="contents-nav" aria-label="On this page"><p>On this page</p><ul>{contents.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></nav>}
+  {project.id === 'aime' && <AimeArchitecture />}
+  <article class="case-study" aria-label={`${title} case study`}><Content /></article>
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a href="/portfolio/">← All projects</a>
+    <a href={`/portfolio/projects/${next.id}/`}><span class="next-label">Next project</span>{next.data.title} →</a>
+  </nav>
+  <ContactFooter eventPrefix={`project_${project.id}`} />
+</TerminalLayout>
