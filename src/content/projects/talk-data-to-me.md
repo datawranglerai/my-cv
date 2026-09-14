@@ -1,5 +1,8 @@
 ---
 title: "Talk Data to Me"
+screenshot:
+  src: "../../assets/projects/talk-data-to-me.png"
+  alt: "Talk Data to Me video still pairing a presenter with agent logs and conversation traces beneath the heading AI transparency."
 summary: "A real-time audio commentator for multi-agent AI workflows, built for the Google Gemma 3n Impact Challenge: sensitive agent decisions run locally on Gemma 3n while a cloud commentator explains them to a human audience as they happen."
 context: "Hackathon"
 role: "Creator: architecture, agents, audio pipeline and write-up"

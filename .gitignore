@@ -5,6 +5,8 @@
 .omx
 .omc
 screenshots/
+.playwright-cli/
+output/playwright/
 node_modules/
 dist/
 .astro/

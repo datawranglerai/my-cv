@@ -23,12 +23,23 @@ npm exec --yes --package=@astrojs/check --package=typescript -- astro-check
 
 - `src/content/projects/*.md`: project metadata and case-study copy. The filename determines the URL slug. Keep existing filenames stable when changing a display title.
 - `src/content.config.ts`: project fields and validation.
+- `src/assets/projects/`: original project screenshots, named by project slug.
 - `src/components/CvContent.astro`: existing CV content.
 - `src/layouts/TerminalLayout.astro` and `src/styles/global.css`: shared layout, themes and visual styling.
 - `public/`: fonts, vendored analytics, robots policy and custom-domain configuration.
 - `DESIGN.md`: design decisions and remaining editorial questions.
 
 Each project needs a title, summary, context, role, order and at least one link. Collaborators, status, tags, highlights and a featured flag are optional. Keep external resources in frontmatter `links`, where the template adds analytics consistently. Optional sections may be omitted; do not invent dates, outcomes or metrics to fill the template.
+
+To add or replace a portfolio preview, put the original image in `src/assets/projects/` and add this optional frontmatter field to the project's Markdown file. The path is relative to that file; `alt` must describe the screenshot and cannot be empty.
+
+```yaml
+screenshot:
+  src: ../../assets/projects/aime.png
+  alt: AI.M.E. dashboard showing the FTSE 350 AI maturity assessment.
+```
+
+Each preview appears beneath its summary on the portfolio overview and links to the case study. Astro generates responsive WebP images at build time; previews retain their full proportions and load lazily. See [Astro images in content collections](https://docs.astro.build/en/guides/images/#images-in-content-collections). The intake folder `screenshots/projects/` is ignored by Git; the copies in `src/assets/projects/` are the maintained source assets.
 
 ## Search indexing
 

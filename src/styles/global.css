@@ -911,6 +911,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .project-entry h2 a { border-bottom: 0; }
 .project-arrow { font-size: 0.8em; font-weight: 400; }
 .project-summary { margin: 0.65rem 0 0; color: var(--muted); font-size: 0.91rem; }
+.project-preview {
+  display: block;
+  margin-top: 1.2rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-deep);
+}
+.project-preview img { display: block; width: 100%; height: auto; }
 .read-case-study { display: inline-block; margin-top: 1.2rem; font-size: 0.85rem; }
 
 .project-highlights {
@@ -925,6 +934,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .project-highlights dt { color: var(--muted); font-size: 0.73rem; }
 .project-highlights dd { margin: 0; color: var(--accent); font-size: 1.3rem; line-height: 1.3; }
 .case-highlights { margin: -0.25rem 0 2.3rem; }
+.case-highlights > div { flex-basis: 15rem; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; font-size: 0.75rem; color: var(--muted); }
 .breadcrumb > span[aria-hidden] { color: var(--accent-2); }
 .project-title { font-size: clamp(2.1rem, 7vw, 3.8rem); line-height: 1.06; overflow-wrap: anywhere; }

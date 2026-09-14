@@ -1,5 +1,8 @@
 ---
 title: "Upstream"
+screenshot:
+  src: "../../assets/projects/upstream.png"
+  alt: "Upstream research landing page with a river photograph and an introduction to UK water-user communities and antimicrobial resistance."
 summary: "An open audience-intelligence matrix profiling ten UK water-user communities across seven strategic dimensions, so an antimicrobial resistance campaign can reach people who have never heard of the threat."
 context: "Professional"
 role: "Project lead: pipeline architecture, research-grounded analysis design, data architecture and the web deliverable"

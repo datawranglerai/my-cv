@@ -1,5 +1,8 @@
 ---
 title: "Declassified Reclassified"
+screenshot:
+  src: "../../assets/projects/declassified-reclassified.png"
+  alt: "Declassified Reclassified public evidence snapshot listing report files, curated JSON exports and a caveat about interpreting the evidence."
 summary: "An evidence pipeline and journalistic report over eight decades of declassified US UAP records, scoring each artefact for documentary strength rather than for the likelihood of anything exotic."
 context: "Personal"
 role: "Researcher, pipeline author and writer"
