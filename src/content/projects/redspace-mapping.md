@@ -1,5 +1,8 @@
 ---
 title: "Redspace mapping"
+screenshot:
+  src: "../../assets/projects/redspace-mapping.png"
+  alt: "Redspace Atlas showing a discourse-pressure scatter plot, narrative chapters and a selected term's evidence panel."
 summary: "A discourse-pressure map of Israel–Palestine conflict language: 300+ client-approved terms scored for how reliably they provoke hostile reaction, each with a confidence rating, feeding a peace campaign's messaging."
 context: "Professional"
 role: "Methodology lead and Atlas builder: scoring framework, triangulation, QA and the client-facing web app"

@@ -1,5 +1,8 @@
 ---
 title: "AI.M.E."
+screenshot:
+  src: "../../assets/projects/aime.png"
+  alt: "AI.M.E. leaderboard showing ranked companies and their scores across five AI maturity pillars."
 summary: "A multi-agent research system that scores organisational AI maturity from public evidence alone, with published FTSE AIM 100 and FTSE 350 studies."
 context: "Professional"
 role: "Programme lead: evaluation framework, research methodology and architecture decisions"

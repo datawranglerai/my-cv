@@ -1,9 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props { project: CollectionEntry<'projects'> }
 const { project } = Astro.props;
-const { title, summary, context, featured, status, highlights, order } = project.data;
+const { title, summary, context, featured, status, highlights, order, screenshot } = project.data;
 ---
 
 <li class:list={['project-entry', { 'project-entry--featured': featured }]}>
@@ -16,6 +17,21 @@ const { title, summary, context, featured, status, highlights, order } = project
     </p>
     <h2 id={`project-${project.id}`}><a href={`/portfolio/projects/${project.id}/`}>{title}<span class="project-arrow" aria-hidden="true"> ↗</span></a></h2>
     <p class="project-summary">{summary}</p>
+    {screenshot && (
+      <a class="project-preview" href={`/portfolio/projects/${project.id}/`} aria-label={`Read the ${title} case study`}>
+        <Image
+          src={screenshot.src}
+          alt={screenshot.alt}
+          width={800}
+          widths={[400, 800, 1200, 1600]}
+          sizes="(max-width: 640px) calc(100vw - 5.25rem), (max-width: 850px) 80vw, 672px"
+          format="webp"
+          quality={85}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+    )}
     {featured && highlights.length > 0 && (
       <dl class="project-highlights">
         {highlights.map(({ value, label }) => <div><dt>{label}</dt><dd>{value}</dd></div>)}

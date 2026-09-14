@@ -2,7 +2,7 @@
 
 ## Source of truth
 
-Status: Active. Updated: 2026-09-13.
+Status: Active. Updated: 2026-09-14.
 
 Surfaces: the existing CV at `/`, a portfolio overview, and seven project pages.
 Confirmed requirements: separate project URLs under `/portfolio/projects/{project-name}`; visual continuity with the CV; hiring managers for senior AI/data leadership roles as the primary audience, future collaborators as secondary; both CV and portfolio unindexed. Research and responsible-AI judgement remain useful supporting evidence. James identifies AI.M.E. as the strongest research example and confirms its methodology may be discussed publicly.
@@ -15,11 +15,12 @@ Evidence reviewed:
 - `public/fonts/`, `public/vendor/goatcounter/count.js`, both validators in `scripts/`, `tests/fixtures/cv_baseline.json`, `.github/workflows/validate.yml`, `public/CNAME`, `public/.nojekyll`, `public/robots.txt` and `.gitignore`.
 - Original CV context and requirements in `.omx/context/cv-terminal-site-20260521T071034Z.md` and `.omx/plans/`; the historical desktop screenshot in `.omx/artifacts/thought-leadership/baseline-desktop.png`. That image is a visual reference, not a fresh browser check.
 - James's project descriptions and subsequent clarification, retained privately in `.omx/context/portfolio-20260912T223044Z.md`.
+- Seven project screenshots supplied by James in `screenshots/projects/`, with maintained copies in `src/assets/projects/` named by the stable project slugs below.
 - [Astro collections](https://docs.astro.build/en/guides/content-collections/), [routing](https://docs.astro.build/en/guides/routing/), [layouts](https://docs.astro.build/en/basics/astro-pages/) and [GitHub Pages deployment](https://docs.astro.build/en/guides/deploy/github/).
 - [James's published AI.M.E. methodology](https://braidr.ai/blog/braidrs-ai-maturity-evaluation-index-showing-our-workings/) and [Braidr's campaign](https://braidr.ai/ai-maturity-evaluation-index-ftse350/).
 - [Google's noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing).
 
-At intake, no design contract, component library or browser-test suite existed. Project screenshots and sample evidence have not yet been selected; the current release uses typography and an explanatory AI.M.E. diagram. Several supplied project URLs failed initial browser retrieval; their content remains based on James's descriptions and existing CV unless a source is identified below.
+At intake, no design contract, component library or browser-test suite existed. James has now supplied one screenshot for each of the seven projects. The portfolio overview uses these previews alongside its typography; the AI.M.E. case study also includes an explanatory diagram. Several supplied project URLs failed initial browser retrieval; their content remains based on James's descriptions and existing CV unless a source is identified below.
 
 ## Brand
 
@@ -69,7 +70,7 @@ Project inventory and stable slugs:
 | Talk Data to Me | `talk-data-to-me` | Gemma 3n Impact Challenge entry | https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me |
 | Self-hosting n8n on Google Cloud Run | `self-host-n8n-on-gcr` | Open-source guide | https://github.com/datawranglerai/self-host-n8n-on-gcr |
 
-Overview: one expanded AI.M.E. entry followed by six compact rows using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Include a real preview image only where it helps explain the work. Preserve the user's order for the remaining six until there is a reason to change it.
+Overview: one expanded AI.M.E. entry followed by six project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one supplied screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Preserve the user's order for the remaining six until there is a reason to change it.
 
 Project hierarchy:
 
@@ -115,7 +116,7 @@ Reusable pieces in `src/components/` and `src/layouts/`:
 - Base layout: head metadata, noindex directive, fonts, theme bootstrap, analytics and root asset paths.
 - Terminal shell: window title/chrome and accessible persistent theme control.
 - Site navigation: CV and Portfolio links with an active state.
-- Project entry: featured and standard variants sharing the same content fields.
+- Project entry: featured and standard variants sharing the same content fields, with an optional screenshot beneath the summary on the overview.
 - Case-study layout: heading/summary, role and status metadata, optional contents, article body and footer navigation.
 - Evidence figure: image or code-native diagram, descriptive caption and source link.
 - Existing contact links and section/list primitives.
@@ -154,7 +155,7 @@ Use AI.M.E. consistently as the display name, expanded as Agentic AI Maturity Ev
 
 Framework: Astro 7.3.2 with static output, a local Markdown projects collection, one shared case-study route and the existing CSS. Use Node 24 LTS. Astro collections support structured local content; `getStaticPaths()` supplies the individual routes at build time. Content changes require rebuilding. See the official Astro references above.
 
-Current metadata: the filename supplies a stable slug; title, summary, context, role, order and HTTP(S) links are required. Collaborators, status, tags, highlights and the featured flag are optional. Use Markdown for the narrative. Dates and preview media can be introduced when established; they are not required fields.
+Current metadata: the filename supplies a stable slug; title, summary, context, role, order and HTTP(S) links are required. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All seven current entries have one. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
 
 The CV uses the shared layout with its content, fragment IDs, theme behaviour, console features and existing links preserved, adding Portfolio navigation. Root-relative asset URLs keep fonts and the vendored analytics script working on nested routes. The small local theme script replaces the theme-change CDN dependency while preserving saved preferences and accessible switch behaviour. GitHub Pages was verified as legacy branch publishing from `main` at `/`. The prepared workflow builds and validates pushes/PRs and deploys only through manual dispatch from `main`. Before publishing the migration, Pages must use GitHub Actions as its source. No remote setting was changed; the custom domain remains `jameswolman.dev`.
 
@@ -176,6 +177,6 @@ Acceptance checks: nine main pages plus 404 build; all seven project routes and 
 - [ ] James/source review: clarify the AIM 100 cost boundary, dates and evidence links before using its figures as headline metrics.
 - [ ] James: establish which non-public materials, if any, can be used for Redspace and Upstream. AI.M.E.'s openness does not establish their disclosure boundaries. Draft from supplied descriptions and public materials in the meantime.
 - [ ] James/source review: fill project-specific contribution, dates, evaluation and outcome details for the other six pages where available. Do not invent results to fill a template.
-- [ ] Implementation owner: select real screenshots/sample outputs and check their provenance and legibility; no selected media inventory exists yet.
+- [x] James supplied and selected one screenshot for each of the seven projects; the maintained inventory is `src/assets/projects/`, with one PNG named for each stable slug above.
 
 These gaps are recorded for content drafting and implementation. They do not prevent review of the proposed design, and this document does not treat them as settled facts.

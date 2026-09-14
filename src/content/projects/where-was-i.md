@@ -1,5 +1,8 @@
 ---
 title: "Where Was I?"
+screenshot:
+  src: "../../assets/projects/where-was-i.png"
+  alt: "Where Was I? book upload form with a stopping-page field and a spoiler-free recap preview."
 summary: "A free web app for readers who have abandoned a book mid-way: upload the PDF or EPUB, mark where you stopped, and get a recap of the story so far with nothing from beyond that point."
 context: "Personal"
 role: "Creator: product design, retrieval pipeline and web app"

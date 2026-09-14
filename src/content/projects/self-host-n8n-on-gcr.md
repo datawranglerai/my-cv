@@ -1,5 +1,8 @@
 ---
 title: "Self-hosting n8n on Google Cloud Run"
+screenshot:
+  src: "../../assets/projects/self-host-n8n-on-gcr.png"
+  alt: "GitHub repository for self-hosting n8n on Google Cloud Run, showing deployment files and the setup guide."
 summary: "An open-source deployment guide for running the n8n automation platform serverlessly on Google Cloud for a few pounds a month, with more than 600 GitHub stars and contributions from Google's Cloud Run product team."
 context: "Open source"
 role: "Author and maintainer"
