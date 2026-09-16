@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  event: string;
+}
+
+const { href, label, event } = Astro.props;
+const newTab = /^https?:/.test(href);
+---
+
+<a href={href} target={newTab ? '_blank' : undefined} rel={newTab ? 'noopener noreferrer' : undefined} data-goatcounter-click={event} data-goatcounter-no-session="1">
+  {label}<span aria-hidden="true"> {newTab ? '↗' : '→'}</span>
+</a>
