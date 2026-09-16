@@ -47,7 +47,7 @@ All pages carry `noindex, nofollow`. Crawling is allowed so search engines can r
 
 ## Deployment
 
-The [Validate site workflow](.github/workflows/validate.yml) builds and validates pushes and pull requests. Deployment runs only when the workflow is manually dispatched from `main`, after validation passes. Merging a pull request does not publish the site automatically.
+The [Validate site workflow](.github/workflows/validate.yml) builds and validates pushes and pull requests. Every push to `main`, including a merged pull request, automatically publishes the site after the build and validation pass. Pull requests and pushes to other branches validate without deploying. Manual deployment from `main` remains available.
 
 On 16 September 2026, GitHub Pages was verified to use **GitHub Actions** as its publishing source, with the `jameswolman.dev` custom domain and HTTPS enforcement preserved. The `github-pages` environment permits deployments from `main`.
 
@@ -55,10 +55,12 @@ Follow this sequence to publish the Astro migration:
 
 1. Open [Settings → Pages](https://github.com/datawranglerai/my-cv/settings/pages). Under **Build and deployment → Source**, confirm **GitHub Actions** is selected. If it still says **Deploy from a branch**, switch it before merging the migration. Preserve `jameswolman.dev` and **Enforce HTTPS**. Skip the suggested workflow templates; this repository already contains the deployment workflow.
 2. Open [the portfolio branch comparison](https://github.com/datawranglerai/my-cv/compare/main...feature/portfolio), create a pull request from `feature/portfolio` into `main`, and merge once its checks pass.
-3. After merging, open [Actions → Validate site](https://github.com/datawranglerai/my-cv/actions/workflows/validate.yml). Click **Run workflow**, select **main**, then click the green **Run workflow** button. The manual trigger becomes available once the updated workflow reaches `main`. Start a new manual run rather than rerunning the push-triggered run.
-4. Open the new run and confirm both jobs finish successfully. `build` compiles Astro, uploads the `dist/` artifact and validates the generated site. `deploy` publishes that artifact to GitHub Pages after validation passes. A skipped `deploy` job is expected for pushes and pull requests, but not for a manual run from `main`.
+3. After merging, open [Actions → Validate site](https://github.com/datawranglerai/my-cv/actions/workflows/validate.yml) and select the run triggered by the push to `main`. Deployment starts automatically; no manual trigger is needed.
+4. Confirm both jobs finish successfully. `build` compiles Astro, uploads the `dist/` artifact and validates the generated site. `deploy` publishes that artifact to GitHub Pages after validation passes. A skipped `deploy` job is expected for pull requests and runs on other branches. If the build or validation fails, deployment is skipped.
 5. Visit [the CV](https://jameswolman.dev/) and [portfolio](https://jameswolman.dev/portfolio/), then open a project page. Check navigation, images, the custom domain, HTTPS and the expected `noindex, nofollow` metadata.
 
-For subsequent releases, merge verified changes into `main`, then repeat steps 3–5. Pushes and merges continue to validate only; publishing requires a manual run from `main`.
+For subsequent releases, merge verified changes into `main`, then repeat steps 3–5 to monitor the automatic deployment and check the live site.
+
+To deploy manually, open **Actions → Validate site → Run workflow**, select **main**, and click the green **Run workflow** button. This builds, validates and publishes the selected branch's current revision; deployment is restricted to `main`.
 
 Official references: [Astro on GitHub Pages](https://docs.astro.build/en/guides/deploy/github/), [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
