@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  terminalPath: string;
+  activePage?: 'cv' | 'portfolio';
+  pageClass?: string;
+}
+
+const { title, description, terminalPath, activePage, pageClass = '' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="James Wolman" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f111a'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='30' font-weight='700' fill='%238be9fd'%3E$_%3C/text%3E%3C/svg%3E" />
+    <script is:inline>
+      (() => {
+        let savedTheme = null;
+        try {
+          savedTheme = localStorage.getItem('theme');
+        } catch (_) {}
+        document.documentElement.setAttribute('data-theme', savedTheme === 'light' ? 'light' : 'dark');
+      })();
+    </script>
+    <script
+      is:inline
+      data-goatcounter="https://datawranglerai.goatcounter.com/count"
+      defer
+      src="/vendor/goatcounter/count.js"
+      crossorigin="anonymous"
+      integrity="sha384-2UjvVpptg4JlEVgJI2PdscrjOjPcil/4F1ZvIMJ81CShQnEDSlPI+l4PfogvTLYi"
+    ></script>
+  </head>
+  <body class={pageClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <div class="terminal-window">
+        <div class="window-bar">
+          <div class="window-controls" aria-hidden="true">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <div class="window-title">jwolman@braidr: {terminalPath}</div>
+          <div class="window-actions">
+            <div class="window-status">read-only</div>
+            <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to light mode" title="Switch to light mode" hidden>
+              <span class="theme-toggle__track" aria-hidden="true">
+                <span class="theme-toggle__icon theme-toggle__icon--moon">☾</span>
+                <span class="theme-toggle__thumb"></span>
+                <span class="theme-toggle__icon theme-toggle__icon--sun">☀</span>
+              </span>
+              <span class="theme-toggle__label">theme</span>
+            </button>
+          </div>
+        </div>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/" aria-current={activePage === 'cv' ? 'page' : undefined}>CV</a>
+          <a href="/portfolio/" aria-current={activePage === 'portfolio' ? 'page' : undefined}>Portfolio</a>
+          <span class="nav-identity" aria-hidden="true">James Wolman</span>
+        </nav>
+        <main id="main-content" tabindex="-1"><slot /></main>
+      </div>
+    </div>
+    <script src="../scripts/theme.js"></script>
+  </body>
+</html>
