@@ -26,14 +26,16 @@ links:
     url: "https://gist.github.com/datawranglerai/562e5abacc232ef9c540dfde913e211c"
 ---
 
-Declassified Reclassified is a personal research project that reads recently declassified US government files on unidentified anomalous phenomena (UAP) the way a sceptical journalist would, with the difference that the reading is done by a pipeline with an audit trail. The corpus runs from a 1947 Air Materiel Command memo, through the CIA's 1953 scientific panel, Project Blue Book and the FBI's Socorro file, to US Central Command mission reports from 2020 to 2024. The public output is a ranked report of the twenty most compelling cases, published as a GitHub Gist with its evidence records, citations and file hashes alongside.
+Declassified Reclassified reads recently released US government files on unidentified anomalous phenomena (UAP) the way a sceptical journalist would, except the journalist is a pipeline with an audit trail. The corpus runs from a 1947 Air Materiel Command memo, via the CIA's 1953 panel, Project Blue Book and the FBI's Socorro file, to US Central Command mission reports from 2020 to 2024. It produces a ranked top twenty, published as a GitHub Gist with its evidence records, citations and file hashes attached.
 
-## The question behind it
+## What the files establish
 
-Declassification makes records available. It does not make their meaning clear, and it makes an attractive interpretation easy. The question I wanted to answer is narrower than "what is out there": what does each document actually establish, how good is its provenance, and where does the record stop. The report says this plainly. Scores measure the strength of each artefact, not the probability of an exotic origin, and the ranking rewards institutional provenance, contemporaneous documentation, physical traces and sensor data. Most of what has been released is reports about evidence, not the films, track files or samples themselves, and the report treats that gap as a finding in its own right.
+Declassification makes records available. It also makes wishful reading easy. So each document is scored on what it establishes and where the record stops, and the ranking rewards institutional provenance, contemporaneous documentation, physical traces and sensor data. A high score means a strong artefact. It says nothing about aliens.
 
-## The format
+Most of what has been released is paperwork about evidence. The films, track files and samples mostly aren't there, and the report counts that gap as a finding.
 
-The pipeline OCRs the scanned PDFs, records deterministic technical observations per artefact, runs a structured analysis against a four-part rubric, and writes everything to a SQLite audit database. The rendered report is generated from that database, so every claim links to a citation row and every citation to a source artefact. Processing limitations travel with the records: several large files were OCRed in page-image chunks at low resolution, so equations, small table entries and handwriting may be mistranscribed, and the report says so rather than smoothing it over.
+## How it's built
 
-Publishing as a Gist is a deliberate choice. It lets me share the rendered report, the embedded evidence images and curated JSON exports for discussion with other developers, without publishing source code, credentials, the full database or raw model requests. It is the same discipline I apply in professional research systems, applied to a subject where the temptation to over-read the evidence is strongest.
+The pipeline OCRs the scans, scores each artefact against a four-part rubric and writes everything to a SQLite audit database. Every claim in the report links to a citation in that database, and every citation to a source file.
+
+The Gist carries the report, evidence images and JSON exports and nothing else. No code, credentials, database or raw model calls. It's the discipline I apply to research systems at work, pointed at the subject where over-reading the evidence is most tempting.
