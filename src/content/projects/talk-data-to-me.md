@@ -7,7 +7,7 @@ summary: "A real-time audio commentator for multi-agent AI workflows, built for 
 context: "Hackathon"
 role: "Creator: architecture, agents, audio pipeline and write-up"
 status: "Hackathon entry, July 2025"
-order: 6
+order: 5
 featured: false
 tags:
   - "agentic_workflows"

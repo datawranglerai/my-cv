@@ -7,7 +7,7 @@ summary: "An evidence pipeline and journalistic report over eight decades of dec
 context: "Personal"
 role: "Researcher, pipeline author and writer"
 status: "Ongoing; run 34 published August 2026"
-order: 5
+order: 4
 featured: false
 tags:
   - "document_analysis"

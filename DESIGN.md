@@ -2,12 +2,12 @@
 
 ## Source of truth
 
-Status: Active. Updated: 2026-09-14.
+Status: Active. Updated: 2026-09-23.
 
 Surfaces: the existing CV at `/`, a portfolio overview, and seven project pages.
 Confirmed requirements: separate project URLs under `/portfolio/projects/{project-name}`; visual continuity with the CV; hiring managers for senior AI/data leadership roles as the primary audience, future collaborators as secondary; both CV and portfolio unindexed. Research and responsible-AI judgement remain useful supporting evidence. James identifies AI.M.E. as the strongest research example and confirms its methodology may be discussed publicly.
 
-The shared layout, content collection, overview and seven project pages are implemented locally. This document governs that implementation and records editorial gaps. No production deployment has been performed.
+The shared layout, content collection, overview and seven project pages are implemented. The site is published through GitHub Pages at `jameswolman.dev`. This document governs that implementation and records editorial gaps.
 
 Evidence reviewed:
 
@@ -15,7 +15,9 @@ Evidence reviewed:
 - `public/fonts/`, `public/vendor/goatcounter/count.js`, both validators in `scripts/`, `tests/fixtures/cv_baseline.json`, `.github/workflows/validate.yml`, `public/CNAME`, `public/.nojekyll`, `public/robots.txt` and `.gitignore`.
 - Original CV context and requirements in `.omx/context/cv-terminal-site-20260521T071034Z.md` and `.omx/plans/`; the historical desktop screenshot in `.omx/artifacts/thought-leadership/baseline-desktop.png`. That image is a visual reference, not a fresh browser check.
 - James's project descriptions and subsequent clarification, retained privately in `.omx/context/portfolio-20260912T223044Z.md`.
-- Seven project screenshots supplied by James in `screenshots/projects/`, with maintained copies in `src/assets/projects/` named by the stable project slugs below.
+- Project screenshots supplied by James in `screenshots/projects/`, with maintained copies in `src/assets/projects/` named by the stable project slugs below.
+- James's description and supplied screenshot for Assassin's Creed Timeline, added on 23 September 2026. The copy uses that description and the visible atlas controls; the live site could not be retrieved during this update.
+- Where Was I? implementation reviewed in `/Users/jameswolman/PycharmProjects/page-sage`: `backend/main.py`, `src/pagesage/core/`, `src/pagesage/rag/`, `config.yml`, `frontend/src/App.js`, the retrieval/summary regression tests and associated architecture/optimisation documentation. The case study describes narrative query decomposition, diversity-aware selection, page filters, token-budgeted summarisation, cached work, configurable embedding providers and device authentication without sign-up. The single-pass summary path is optional; documentation-only performance figures and absolute spoiler guarantees are excluded. Private evidence and the page-index caveat are recorded in `.omx/artifacts/portfolio/where-was-i-source-review.md`.
 - [Astro collections](https://docs.astro.build/en/guides/content-collections/), [routing](https://docs.astro.build/en/guides/routing/), [layouts](https://docs.astro.build/en/basics/astro-pages/) and [GitHub Pages deployment](https://docs.astro.build/en/guides/deploy/github/).
 - [James's published AI.M.E. methodology](https://braidr.ai/blog/braidrs-ai-maturity-evaluation-index-showing-our-workings/) and [Braidr's campaign](https://braidr.ai/ai-maturity-evaluation-index-ftse350/).
 - [Google's noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing).
@@ -36,7 +38,7 @@ Trust comes from precise contributions, real examples, linked sources, appropria
 - Make each project independently shareable in an application or conversation.
 - Keep the CV and portfolio unindexed, as explicitly requested.
 
-First-release non-goals: a wider CV redesign or rewrite, a blog, filtering/search for seven entries, a CMS, a backend, accounts, live metric polling, or embedded replicas of the project applications. Publishing changes to production is a separate implementation step.
+First-release non-goals: a wider CV redesign or rewrite, a blog, filtering/search for the project list, a CMS, a backend, accounts, live metric polling, or embedded replicas of the project applications. Publishing changes to production is a separate implementation step.
 
 Success signals: all seven projects are reachable from the overview; a detail page identifies purpose and contribution before its technical narrative; evidence links work; the CV's appearance and existing behaviour survive the migration; all generated pages carry the indexing directive.
 
@@ -68,8 +70,9 @@ Project inventory and stable slugs:
 | Declassified Reclassified | `declassified-reclassified` | Personal research and writing | https://gist.github.com/datawranglerai/562e5abacc232ef9c540dfde913e211c |
 | Talk Data to Me | `talk-data-to-me` | Gemma 3n Impact Challenge entry | https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me |
 | Self-hosting n8n on Google Cloud Run | `self-host-n8n-on-gcr` | Open-source guide | https://github.com/datawranglerai/self-host-n8n-on-gcr |
+| Assassin's Creed Timeline | `assassins-creed-timeline` | Personal | https://assassinscreed.fyi/ |
 
-Overview: one expanded AI.M.E. entry followed by six project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one supplied screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Preserve the user's order for the remaining six until there is a reason to change it.
+Overview: one expanded AI.M.E. entry followed by six project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one supplied screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Preserve the established order, with Assassin's Creed Timeline appended as the seventh project.
 
 Project hierarchy:
 
@@ -117,6 +120,7 @@ Reusable pieces in `src/components/` and `src/layouts/`:
 - Site navigation: CV and Portfolio links with an active state.
 - Project entry: featured and standard variants sharing the same content fields, with an optional screenshot beneath the summary on the overview.
 - Case-study layout: heading/summary, role and status metadata, optional contents, article body and footer navigation.
+- Where Was I? includes the supplied Product Hunt follow badge beneath its opening paragraph. Use Product Hunt's official light/dark images, selected by the existing site theme, at 250 × 54px with responsive sizing, a subtle theme-token outline and visible keyboard focus. Preserve the supplied destination and click tracking; no extra client script is needed.
 - Evidence figure: image or code-native diagram, descriptive caption and source link.
 - Existing contact links and section/list primitives.
 
@@ -146,6 +150,8 @@ Links must have clear hover/focus states. Keep existing theme persistence and ac
 
 Use clear first-person prose consistent with the CV, British English, and concrete descriptions of decisions and results. Use “I” for James's work and explicit team credit for shared work. Explain unfamiliar acronyms once.
 
+Where Was I? follows James's supplied DevHunt/Product Hunt passages: conversational, personal and concise, with roughly 350 words of case-study copy. Credit his friend Adrian as co-creator; retain the strongest implementation choices without turning the page into a technical inventory.
+
 Preserve original project purposes and distinguish research findings, product capabilities, intended benefits and ongoing work. AI for Good work is not automatically evidence of AI safety research. Avoid generic claims of transformation or unexplained technology lists.
 
 Use AI.M.E. consistently as the display name, expanded as Agentic AI Maturity Evaluation. Keep quantitative claims dated and attributed. Do not turn source visibility into proof of complete internal organisational capability; the published methodology explicitly limits assessment to public evidence.
@@ -156,7 +162,7 @@ Framework: Astro 7.3.2 with static output, a local Markdown projects collection,
 
 Current metadata: the filename supplies a stable slug; title, summary, context, role, order and HTTP(S) links are required. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All seven current entries have one. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
 
-The CV uses the shared layout with its content, fragment IDs, theme behaviour, console features and existing links preserved, adding Portfolio navigation. Root-relative asset URLs keep fonts and the vendored analytics script working on nested routes. The small local theme script replaces the theme-change CDN dependency while preserving saved preferences and accessible switch behaviour. GitHub Pages was verified as legacy branch publishing from `main` at `/`. The prepared workflow builds and validates pushes/PRs and deploys only through manual dispatch from `main`. Before publishing the migration, Pages must use GitHub Actions as its source. No remote setting was changed; the custom domain remains `jameswolman.dev`.
+The CV uses the shared layout with its content, fragment IDs, theme behaviour, console features and existing links preserved, adding Portfolio navigation. Root-relative asset URLs keep fonts and the vendored analytics script working on nested routes. The small local theme script replaces the theme-change CDN dependency while preserving saved preferences and accessible switch behaviour. GitHub Pages uses GitHub Actions as its publishing source. The workflow builds and validates pushes and pull requests, then deploys successful pushes or manual dispatches from `main`. The custom domain remains `jameswolman.dev`.
 
 Indexing requirement: every generated HTML page, including CV, portfolio, projects and 404, emits `<meta name="robots" content="noindex, nofollow">`. The new `public/robots.txt` allows crawling so supporting search engines can read that directive. Google documents that crawl blocking prevents detection of noindex. Do not claim search-engine removal has occurred solely because a build passes. No search-oriented sitemap is generated.
 

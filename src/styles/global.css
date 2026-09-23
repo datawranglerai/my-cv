@@ -971,6 +971,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .case-study img { max-width: 100%; height: auto; }
 .case-study pre { padding: 1rem; overflow-x: auto; }
 .case-study code { font-family: inherit; }
+.product-hunt-badge {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--border);
+}
+.product-hunt-badge img { display: block; width: 100%; height: auto; border-radius: inherit; }
+.product-hunt-badge .product-hunt-badge-light { display: none; }
+[data-theme="light"] .product-hunt-badge-dark { display: none; }
+[data-theme="light"] .product-hunt-badge-light { display: block; }
+.case-study a.product-hunt-badge:hover,
+.case-study a.product-hunt-badge:focus-visible {
+  background: transparent;
+  box-shadow: 0 0 0 1px var(--prompt);
+}
 .project-pagination { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--section-line); font-size: 0.81rem; }
 .project-pagination a { align-self: start; justify-self: start; }
 .project-pagination a:last-child { text-align: right; justify-self: end; }

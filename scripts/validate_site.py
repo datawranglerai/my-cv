@@ -21,6 +21,7 @@ PROJECT_SLUGS = (
     "declassified-reclassified",
     "talk-data-to-me",
     "self-host-n8n-on-gcr",
+    "assassins-creed-timeline",
 )
 EXPECTED_PAGES = (
     "index.html",
@@ -225,6 +226,8 @@ def main() -> int:
     pages = {path: parse_page(path) for path in site_dir.rglob("*.html")}
     for page, parser in pages.items():
         name = page.relative_to(site_dir).as_posix()
+        if name not in EXPECTED_PAGES:
+            errors.append(f"unexpected route in build output: {name}")
         if parser.main_count != 1 or parser.h1_count != 1:
             errors.append(f"{name}: expected one main and one h1, found {parser.main_count} and {parser.h1_count}")
         if parser.duplicate_ids:

@@ -10,7 +10,7 @@ collaborators:
   - "Fieldcraft Studios (brief, AMR subject expertise, campaign strategy)"
   - "Braidr colleagues (data collection, visual design)"
 status: "Live, living research"
-order: 4
+order: 3
 featured: false
 tags:
   - "audience_intelligence"
