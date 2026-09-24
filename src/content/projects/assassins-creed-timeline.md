@@ -3,7 +3,7 @@ title: "Assassin's Creed Timeline"
 screenshot:
   src: "../../assets/projects/assassins-creed-timeline.png"
   alt: "Assassin's Creed timeline showing character portraits and events across historical eras, with separate lanes for the Isu, Pieces of Eden, character lives and orders."
-summary: "An interactive historical atlas of Assassin's Creed: character arcs, events, and the Isu backstory, all on one timeline. Built as a data visualisation project by someone who spent too long arguing about chronology in wiki comment sections."
+summary: "An interactive historical atlas of Assassin's Creed: character arcs, events, and the Isu backstory, all on one timeline. Built as a data visualisation project by someone who forgets as much as he learns about the franchise."
 context: "Personal"
 role: "Creator: concept, data visualisation and interactive atlas"
 status: "Live"
