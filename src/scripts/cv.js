@@ -39,11 +39,11 @@
   console.groupEnd();
   console.groupCollapsed("%c02%c  where was i?", consoleStyles.indexAmber, consoleStyles.heading);
   console.log("%c  URL   %c https://app.wherewasi.co.uk", consoleStyles.label, consoleStyles.url);
-  console.log("%c  INTEL %c  Sophisticated RAG AI app that helps recap books up to a certain page without spoiling anything beyond the page read.", consoleStyles.labelIntel, consoleStyles.value);
+  console.log("%c  INTEL %c  Uses retrieval-augmented generation to recap a book up to the page you reached, with page filters designed to prevent spoilers.", consoleStyles.labelIntel, consoleStyles.value);
   console.groupEnd();
-  console.groupCollapsed("%c03%c  Talk Data To Me", consoleStyles.indexGreen, consoleStyles.heading);
+  console.groupCollapsed("%c03%c  Talk Data to Me", consoleStyles.indexGreen, consoleStyles.heading);
   console.log("%c  URL   %c https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me#3250211", consoleStyles.label, consoleStyles.url);
-  console.log("%c  INTEL %c  DeepMind Hackathon entry: a real-time audio commentary programme for advanced agentic AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
+  console.log("%c  INTEL %c  Google Gemma 3n Impact Challenge entry: real-time audio commentary for multi-agent AI workflows.", consoleStyles.labelIntel, consoleStyles.value);
   console.groupEnd();
   console.groupCollapsed("%c04%c  Mortgage Overpayment Calculator", consoleStyles.indexViolet, consoleStyles.heading);
   console.log("%c  URL   %c https://datawranglerai.github.io/overpayment-calculator/", consoleStyles.label, consoleStyles.url);
@@ -52,7 +52,7 @@
   console.groupCollapsed("%c05%c  Declassified Reclassified", consoleStyles.indexCyan, consoleStyles.heading);
   console.log("%c  URL   %c https://gist.github.com/datawranglerai/c293db77f456f2f1130874b3a5e0291e", consoleStyles.label, consoleStyles.url);
   console.log("%c  SIGNAL%c  20 evidence records with claim-level citations", consoleStyles.label, consoleStyles.signal);
-  console.log("%c  INTEL %c  Provenance-first, skeptical Python pipeline that turns messy mixed-media UAP releases into auditable SQLite-backed analysis and reports.", consoleStyles.labelIntel, consoleStyles.value);
+  console.log("%c  INTEL %c  A sceptical analysis of mixed-media UAP releases, using a Python pipeline with claim-level citations and a SQLite audit database.", consoleStyles.labelIntel, consoleStyles.value);
   console.groupEnd();
   console.groupEnd();
 
