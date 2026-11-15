@@ -72,6 +72,10 @@ Each result records the reasoning and run metadata, including model details and 
 <figcaption>A hypothetical example in the public calculator, which lets readers try the scoring rules without changing the live clock.</figcaption>
 </figure>
 
+## Checking the assessments
+
+We checked a small batch of assessments by hand and found them consistent with the methodology. Those reviews also informed the AI's scoring. The open-source package includes an evaluation harness.
+
 ## Still in progress
 
-The website and Python package are available now. I'm still working on the narrative, positioning and layout. The automated assessments need scrutiny too: source coverage and model interpretation affect the results, and the records have not been independently fact-checked.
+The website and Python package are available now. I'm still working on the narrative, positioning and layout. Human review has so far covered a small batch; the full incident record has not been independently fact-checked. Source coverage and model interpretation still affect the results.

@@ -5,9 +5,10 @@ screenshot:
   alt: "Culture3 and TED report cover: Lead on climate, lead in culture."
 summary: "I led a Braidr team building a research platform for TED. It lets brands explore climate conversations through eight cultural tribes and test how their messages might land."
 context: "Professional"
-role: "Project lead: research, platform development and delivery with ML and data engineers"
+role: "Project lead, lead architect and engineer"
 collaborators:
-  - "Braidr ML and data engineering team"
+  - "Machine learning engineer"
+  - "Data engineer"
 status: "Research delivered; private demo platform"
 order: 2
 featured: false
@@ -45,13 +46,19 @@ We started with a fairly rebellious critique of brands in climate conversations.
 <figcaption>Lilian Beatty, Global Partnerships, TED. Excerpt from her feedback on the work.</figcaption>
 </figure>
 
+## My role and the team
+
+I led the architecture and engineering, analysed the data and developed the findings. A machine learning engineer and a data engineer worked alongside me.
+
+I worked with a strategist and project manager, our creative agency partner Conspirators, TED's Global Partnerships stakeholder and internal C-suite stakeholders.
+
 ## Finding the climate tribes
 
 We adapted the idea of cultural congregations in Dr Marcus Collins' <em>For the Culture</em> into tribes: groups connected by shared beliefs, language and ways of behaving. We grouped accounts by those signals and used model-inferred demographics to describe the groups.
 
-The study analysed public posts and comments in many languages across Facebook, X, TikTok and YouTube. We used <a href="https://huggingface.co/intfloat/multilingual-e5-large" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project_tribe_multilingual_e5_clicked" data-goatcounter-no-session="1">intfloat/multilingual-e5-large</a> to represent meaning across languages, alongside embedding models chosen for short, informal social-media text. K-means grouped accounts by those representations, with silhouette scores and the elbow method helping us choose eight clusters. Those became tribes such as Disaster Doomscrollers and Eco-Conscious Trendsetters: our interpretation of patterns in the conversations.
+The study analysed public posts and comments in many languages across Facebook, X, TikTok and YouTube. We used <a href="https://huggingface.co/intfloat/multilingual-e5-large" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project_tribe_multilingual_e5_clicked" data-goatcounter-no-session="1">intfloat/multilingual-e5-large</a> to represent meaning across languages, alongside embedding models chosen for short, informal social-media text. We clustered accounts by those representations and used noise analysis to evaluate the resulting groups. Those became tribes such as Disaster Doomscrollers and Eco-Conscious Trendsetters: our interpretation of patterns in the conversations.
 
-For demographic context, we extended the <a href="https://github.com/euagendas/m3inference" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project_tribe_m3_inference_clicked" data-goatcounter-no-session="1">m3-inference</a> project to work across our broader mix of data sources. Its age, gender and account-type estimates helped describe the groups. These remained model inferences, rather than verified demographic facts.
+For demographic context, we extended the <a href="https://github.com/euagendas/m3inference" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project_tribe_m3_inference_clicked" data-goatcounter-no-session="1">m3-inference</a> project to work across our broader mix of data sources. Its age, gender and account-type estimates helped describe the groups. We manually checked demographic predictions against known creator profiles to assess inference accuracy. Across the wider dataset, these remained model-inferred labels.
 
 <figure class="project-screenshot">
 
