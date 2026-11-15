@@ -32,6 +32,7 @@ const projects = defineCollection({
     collaborators: z.array(z.string()).default([]),
     status: z.string().optional(),
     order: z.number().int().positive(),
+    placement: z.enum(['primary', 'supporting', 'personal', 'hidden']).default('primary'),
     featured: z.boolean().default(false),
     screenshot: z.object({
       src: image(),

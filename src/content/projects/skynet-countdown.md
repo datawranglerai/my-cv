@@ -9,7 +9,7 @@ role: "Creator and lead: design, development, architecture and evaluation method
 collaborators:
   - "Joe: strategic positioning and manifesto"
 status: "Live, in active development"
-order: 3
+order: 4
 featured: false
 tags:
   - "ai_evaluation"

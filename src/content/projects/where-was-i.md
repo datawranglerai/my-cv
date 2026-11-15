@@ -9,7 +9,8 @@ role: "Co-creator: product design, retrieval and summarisation pipeline, and web
 collaborators:
   - "Adrian"
 status: "Live, free to use"
-order: 2
+order: 6
+placement: "supporting"
 featured: false
 tags:
   - "retrieval_augmented_generation"

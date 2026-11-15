@@ -5,18 +5,29 @@ import ProjectEntry from '../../components/ProjectEntry.astro';
 import ContactFooter from '../../components/ContactFooter.astro';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const primary = projects.filter(project => project.data.placement === 'primary');
+const supporting = projects.filter(project => project.data.placement === 'supporting');
+const personal = projects.filter(project => project.data.placement === 'personal');
 ---
 
-<TerminalLayout title="Portfolio | James Wolman" description="Selected AI, data and research projects by James Wolman: the work, the decisions and the evidence behind it." terminalPath="~/portfolio" activePage="portfolio" pageClass="portfolio-page">
+<TerminalLayout title="Portfolio | James Wolman" description="Applied research and data science leadership by James Wolman: AI evaluation, multilingual cultural research and public-interest research systems." terminalPath="~/portfolio" activePage="portfolio" pageClass="portfolio-page">
   <header class="hero portfolio-hero">
     <p class="eyebrow">portfolio --selected-work</p>
     <h1>Selected work</h1>
-    <p class="role">AI, data &amp; research</p>
-    <p class="summary">The work here includes the FTSE 350 AI maturity study, a reading assistant for half-finished books and an open-source deployment guide. Each case study covers my contribution, the decisions behind it and the evidence for the results.</p>
-    <p class="collection-count">{projects.length} projects <span aria-hidden="true">/</span> Research · Engineering · Leadership</p>
+    <p class="role">Data science &amp; applied research</p>
+    <p class="summary">I lead data science teams building research systems. The work below covers published AI maturity studies, multilingual cultural research for TED and public-health audience research.</p>
+    <p class="collection-count">{primary.length} research case studies <span aria-hidden="true">/</span> {supporting.length} supporting projects</p>
   </header>
-  <section aria-label="Selected projects">
-    <ol class="project-list">{projects.map(project => <ProjectEntry project={project} />)}</ol>
+  <section aria-label="Research case studies">
+    <ol class="project-list">{primary.map(project => <ProjectEntry project={project} />)}</ol>
   </section>
+  {supporting.length > 0 && <section class="portfolio-secondary" aria-labelledby="supporting-projects-heading">
+    <h2 class="portfolio-section-heading" id="supporting-projects-heading">Engineering &amp; product work</h2>
+    <ol class="project-list" start={supporting[0].data.order}>{supporting.map(project => <ProjectEntry project={project} compact />)}</ol>
+  </section>}
+  {personal.length > 0 && <section class="portfolio-secondary" aria-labelledby="personal-projects-heading">
+    <h2 class="portfolio-section-heading" id="personal-projects-heading">Personal projects</h2>
+    <ul class="personal-project-list">{personal.map(project => <li><a href={`/portfolio/projects/${project.id}/`}>{project.data.title} <span aria-hidden="true">↗</span></a></li>)}</ul>
+  </section>}
   <ContactFooter />
 </TerminalLayout>

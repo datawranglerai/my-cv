@@ -7,13 +7,14 @@ import AimeArchitecture from '../../../components/AimeArchitecture.astro';
 
 export async function getStaticPaths() {
   const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
-  return projects.map((project, index) => ({
+  const listed = projects.filter(project => project.data.placement !== 'hidden');
+  return projects.map(project => ({
     params: { slug: project.id },
-    props: { project, next: projects[(index + 1) % projects.length] },
+    props: { project, next: listed.find(candidate => candidate.data.order > project.data.order) ?? listed[0] },
   }));
 }
 
-interface Props { project: CollectionEntry<'projects'>; next: CollectionEntry<'projects'> }
+interface Props { project: CollectionEntry<'projects'>; next?: CollectionEntry<'projects'> }
 const { project, next } = Astro.props;
 const { title, summary, context, role, collaborators, status, tags, links, highlights } = project.data;
 const { Content, headings } = await render(project);
@@ -42,7 +43,7 @@ const contents = headings.filter(heading => heading.depth === 2);
   <article class="case-study" aria-label={`${title} case study`}><Content /></article>
   <nav class="project-pagination" aria-label="Project navigation">
     <a href="/portfolio/">← All projects</a>
-    <a href={`/portfolio/projects/${next.id}/`}><span class="next-label">Next project</span>{next.data.title} →</a>
+    {next && <a href={`/portfolio/projects/${next.id}/`}><span class="next-label">Next project</span>{next.data.title} →</a>}
   </nav>
   <ContactFooter eventPrefix={`project_${project.id}`} />
 </TerminalLayout>

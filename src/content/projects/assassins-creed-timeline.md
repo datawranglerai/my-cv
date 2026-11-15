@@ -8,6 +8,7 @@ context: "Personal"
 role: "Creator: concept, data visualisation and interactive atlas"
 status: "Live"
 order: 9
+placement: "personal"
 featured: false
 tags:
   - "data_visualisation"
