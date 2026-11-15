@@ -2,6 +2,26 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const localPdfPattern = /^\/(?!\/)(?:[^/?#]+\/)*[^/?#]+\.pdf$/i;
+const projectLinkUrl = z.union([
+  z.url({ protocol: /^https?$/ }),
+  z.string().regex(localPdfPattern),
+]);
+
+const projectLink = z.object({
+  label: z.string(),
+  url: projectLinkUrl,
+  download: z.boolean().optional(),
+}).superRefine((link, context) => {
+  if (link.download && !localPdfPattern.test(link.url)) {
+    context.addIssue({
+      code: 'custom',
+      path: ['download'],
+      message: 'download links must reference a root-relative PDF',
+    });
+  }
+});
+
 const projects = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/projects' }),
   schema: ({ image }) => z.object({
@@ -18,7 +38,7 @@ const projects = defineCollection({
       alt: z.string().trim().min(1),
     }).optional(),
     tags: z.array(z.string()).default([]),
-    links: z.array(z.object({ label: z.string(), url: z.url({ protocol: /^https?$/ }) })).min(1),
+    links: z.array(projectLink).min(1),
     highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
   }),
 });

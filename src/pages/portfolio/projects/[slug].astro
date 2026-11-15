@@ -32,7 +32,7 @@ const contents = headings.filter(heading => heading.depth === 2);
       {status && <div><dt>Status</dt><dd>{status}</dd></div>}
     </dl>
     <ul class="project-actions">
-      {links.map((link, index) => <li><ExternalLink href={link.url} label={link.label} event={`project_${project.id}_resource_${index + 1}_clicked`} /></li>)}
+      {links.map((link, index) => <li><ExternalLink href={link.url} label={link.label} event={`project_${project.id}_resource_${index + 1}_clicked`} download={link.download} /></li>)}
     </ul>
     {tags.length > 0 && <ul class="project-tags" aria-label="Project themes">{tags.map(tag => <li>{tag}</li>)}</ul>}
   </header>

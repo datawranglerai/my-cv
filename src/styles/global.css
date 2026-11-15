@@ -996,6 +996,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .project-screenshot { margin: 1.8rem 0; }
 .project-screenshot img { display: block; width: 100%; border: 1px solid var(--border); border-radius: 6px; }
 .project-screenshot figcaption { margin-top: 0.75rem; color: var(--muted); font-size: 0.76rem; line-height: 1.65; }
+.project-testimonial { margin: 1.8rem 0 2.2rem; }
+.project-testimonial blockquote { margin: 0; }
+.project-testimonial figcaption { margin: 0.8rem 0 0 1rem; color: var(--muted); font-size: 0.76rem; line-height: 1.65; }
 .case-study pre { padding: 1rem; overflow-x: auto; }
 .case-study code { font-family: inherit; }
 .product-hunt-badge {
