@@ -22,6 +22,7 @@ PROJECT_SLUGS = (
     "talk-data-to-me",
     "self-host-n8n-on-gcr",
     "assassins-creed-timeline",
+    "skynet-countdown",
 )
 EXPECTED_PAGES = (
     "index.html",
