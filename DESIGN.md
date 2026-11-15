@@ -43,11 +43,11 @@ Trust comes from precise contributions, real examples, linked sources, appropria
 
 First-release non-goals: a wider CV redesign or rewrite, a blog, filtering/search for the project list, a CMS, a backend, accounts, live metric polling, or embedded replicas of the project applications. Publishing changes to production is a separate implementation step.
 
-Success signals: all nine projects are reachable from the overview; a detail page identifies purpose and contribution before its technical narrative; evidence links work; the CV's appearance and existing behaviour survive the migration; all generated pages carry the indexing directive.
+Success signals: the overview foregrounds four research case studies, followed by two compact supporting projects and one personal-project link; hidden entries are omitted from discovery and next-project navigation while their URLs remain available; a detail page identifies purpose and contribution before its technical narrative; evidence links work; the CV's appearance and existing behaviour survive the migration; all generated pages carry the indexing directive.
 
 ## Personas and jobs
 
-Primary: hiring managers considering James for senior AI/data leadership roles, as confirmed in his latest audience selection. Foreground programme ownership, technical decisions, collaboration and delivery; retain depth in research methods and responsible-AI judgement for specialist reviewers. Support both a short first read and deeper examination. Do not infer a specific employer's assessment rubric.
+Primary: hiring managers considering James for data science leadership, ideally in-house and in an applied research setting. Foreground programme ownership, technical decisions, collaboration and delivery; retain depth in research methods and responsible-AI judgement for specialist reviewers. The overview introduction leads with AI evaluation, multilingual cultural research and public-health audience research. Support both a short first read and deeper examination. Do not infer a specific employer's assessment rubric.
 
 Secondary: potential project partners examining relevant methods, outputs and collaboration experience. Contact links should lead to the existing email and LinkedIn destinations.
 
@@ -58,26 +58,26 @@ Visitors may arrive directly on a project page, including on mobile, without fir
 | Route | Role |
 | --- | --- |
 | `/` | Existing CV with a visible Portfolio link |
-| `/portfolio/` | Short introduction, prominent AI.M.E. entry, eight further project entries and contact links |
+| `/portfolio/` | Research introduction, four primary case studies, two compact supporting entries, one personal-project link and contact links |
 | `/portfolio/projects/{slug}` | A complete, independently readable project case study |
 
 Use persistent CV/Portfolio navigation, an active-page indication, and a breadcrumb from each project to the overview. Keep project titles and commands understandable as standard links. The terminal window title can reflect `~/cv`, `~/portfolio`, or the current project.
 
 Project inventory and stable slugs:
 
-| Project | Slug | Context | Source |
-| --- | --- | --- | --- |
-| AI.M.E. | `aime` | Professional, Braidr | https://aime.braidr.ai/ftse350 |
-| Where Was I? | `where-was-i` | Personal | https://wherewasi.co.uk |
-| Skynet Countdown | `skynet-countdown` | Personal, with an open-source evaluation package | https://skynetcountdown.org/ |
-| T.R.I.B.E. | `tribe` | Professional, Braidr for TED | Supplied report, methodology, analytics and demo screenshots |
-| Upstream | `upstream` | Professional, Braidr and Fieldcraft Studios | https://good.braidr.ai/upstream |
-| Declassified Reclassified | `declassified-reclassified` | Personal research and writing | https://gist.github.com/datawranglerai/562e5abacc232ef9c540dfde913e211c |
-| Talk Data to Me | `talk-data-to-me` | Gemma 3n Impact Challenge entry | https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me |
-| Self-hosting n8n on Google Cloud Run | `self-host-n8n-on-gcr` | Open-source guide | https://github.com/datawranglerai/self-host-n8n-on-gcr |
-| Assassin's Creed Timeline | `assassins-creed-timeline` | Personal | https://assassinscreed.fyi/ |
+| Project | Slug | Placement | Context | Source |
+| --- | --- | --- | --- | --- |
+| AI.M.E. | `aime` | 1 / primary | Professional, Braidr | https://aime.braidr.ai/ftse350 |
+| T.R.I.B.E. | `tribe` | 2 / primary | Professional, Braidr for TED | Supplied report, methodology, analytics and demo screenshots |
+| Upstream | `upstream` | 3 / primary | Professional, Braidr and Fieldcraft Studios | https://good.braidr.ai/upstream |
+| Skynet Countdown | `skynet-countdown` | 4 / primary | Personal, with an open-source evaluation package | https://skynetcountdown.org/ |
+| Self-hosting n8n on Google Cloud Run | `self-host-n8n-on-gcr` | 5 / supporting | Open-source guide | https://github.com/datawranglerai/self-host-n8n-on-gcr |
+| Where Was I? | `where-was-i` | 6 / supporting | Personal | https://wherewasi.co.uk |
+| Declassified Reclassified | `declassified-reclassified` | 7 / hidden | Personal research and writing | https://gist.github.com/datawranglerai/562e5abacc232ef9c540dfde913e211c |
+| Talk Data to Me | `talk-data-to-me` | 8 / hidden | Gemma 3n Impact Challenge entry | https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me |
+| Assassin's Creed Timeline | `assassins-creed-timeline` | 9 / personal link | Personal | https://assassinscreed.fyi/ |
 
-Overview: one expanded AI.M.E. entry followed by eight project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Skynet Countdown is third, after Where Was I?, and T.R.I.B.E. is fourth. The other projects retain their relative order.
+Overview: four primary case studies in the order AI.M.E., T.R.I.B.E., Upstream and Skynet Countdown, using the CV's existing list and divider vocabulary. AI.M.E. keeps its expanded featured treatment. Each primary entry includes its existing screenshot, preserving full proportions. The “Engineering & product work” section contains n8n and Where Was I? as compact text entries with no preview images. Assassin's Creed Timeline appears as a small link under “Personal projects”. Declassified Reclassified and Talk Data to Me are hidden from the overview and every next-project link. Their standalone case-study URLs continue to build. The case-study narratives, evaluation claims and leadership details are unchanged by this curation update.
 
 Project hierarchy:
 
@@ -123,7 +123,7 @@ Reusable pieces in `src/components/` and `src/layouts/`:
 - Base layout: head metadata, noindex directive, fonts, theme bootstrap, analytics and root asset paths.
 - Terminal shell: window title/chrome and accessible persistent theme control.
 - Site navigation: CV and Portfolio links with an active state.
-- Project entry: featured and standard variants sharing the same content fields, with an optional screenshot beneath the summary on the overview.
+- Project entry: featured and standard variants share the same content fields, with an optional screenshot beneath the summary. Compact supporting entries use an h3 beneath their section's h2 and omit screenshots and highlight blocks. Personal projects use ordinary text links.
 - Case-study layout: heading/summary, role and status metadata, optional contents, article body and footer navigation.
 - Where Was I? includes the supplied Product Hunt follow badge beneath its opening paragraph. Use Product Hunt's official light/dark images, selected by the existing site theme, at 250 × 54px with responsive sizing, a subtle theme-token outline and visible keyboard focus. Preserve the supplied destination and click tracking; no extra client script is needed.
 - Evidence figure: image or code-native diagram, descriptive caption and source link.
@@ -167,7 +167,9 @@ Use AI.M.E. consistently as the display name, expanded as Agentic AI Maturity Ev
 
 Framework: Astro 7.3.2 with static output, a local Markdown projects collection, one shared case-study route and the existing CSS. Use Node 24 LTS. Astro collections support structured local content; `getStaticPaths()` supplies the individual routes at build time. Content changes require rebuilding. See the official Astro references above.
 
-Current metadata: the filename supplies a stable slug; title, summary, context, role, order and resource links are required. Links accept HTTP(S) URLs or root-relative PDF paths; an optional `download: true` is restricted to local PDFs and produces a tracked native download. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All nine current entries have one. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
+Development startup forces a refresh of Astro's content store. Astro 7.3.2 can retain parsed entries missing a newly added metadata field when their file digests match; `getCollection()` does not revalidate those cached entries. The dev store is separate from the build store, so production-only validation can miss this. `npm run validate:dev` checks the actual localhost portfolio; the same project-list contract is checked by the build validator. Keep placement filters strict so an incomplete cache cannot silently reveal a hidden project.
+
+Current metadata: the filename supplies a stable slug; title, summary, context, role, order and resource links are required. `placement` defaults to `primary` and also accepts `supporting`, `personal` or `hidden`. Hidden placement controls listing and next-project navigation, while all content entries retain their routes. Links accept HTTP(S) URLs or root-relative PDF paths; an optional `download: true` is restricted to local PDFs and produces a tracked native download. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All nine current entries have one, though only primary entries show previews on the overview. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
 
 T.R.I.B.E. report download: James chose a selection of finished pages after review found working notes in the supplied 105-page PDF, then requested pages 34–35 as complementary views of the data. `public/reports/tribe-selected-report.pdf` contains a labelled selection cover plus original source pages 1–2, 4, 9, 17, 20–26, 30–31, 34–35 and 39–44 (23 pages total). Original wording, credits and notices are retained. Placeholder pages and the working appendix are omitted. Full methodology and analytics PDFs remain source materials rather than public downloads. The case study does not repeat the draft's unsupported population margin-of-error claim or treat aggregate views as unique people. Selection provenance and review evidence are recorded under `.omx/artifacts/portfolio/tribe/`.
 

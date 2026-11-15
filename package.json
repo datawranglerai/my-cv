@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --force",
     "build": "astro build",
     "preview": "astro preview",
     "validate": "python3 scripts/validate_site.py && python3 scripts/validate_goatcounter.py",
+    "validate:dev": "python3 scripts/validate_site.py --portfolio-url http://localhost:4321/portfolio/",
     "test": "npm run build && npm run validate"
   },
   "engines": {

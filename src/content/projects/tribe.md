@@ -9,7 +9,7 @@ role: "Project lead: research, platform development and delivery with ML and dat
 collaborators:
   - "Braidr ML and data engineering team"
 status: "Research delivered; private demo platform"
-order: 4
+order: 2
 featured: false
 tags:
   - "cultural_research"

@@ -9,7 +9,8 @@ role: "Author and maintainer"
 collaborators:
   - "Community contributors, including Google Cloud Run product team members"
 status: "Maintained since March 2025"
-order: 8
+order: 5
+placement: "supporting"
 featured: false
 tags:
   - "n8n"

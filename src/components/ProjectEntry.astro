@@ -2,22 +2,23 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-interface Props { project: CollectionEntry<'projects'> }
-const { project } = Astro.props;
+interface Props { project: CollectionEntry<'projects'>; compact?: boolean }
+const { project, compact = false } = Astro.props;
 const { title, summary, context, featured, status, highlights, order, screenshot } = project.data;
+const Heading = compact ? 'h3' : 'h2';
 ---
 
-<li class:list={['project-entry', { 'project-entry--featured': featured }]}>
+<li class:list={['project-entry', { 'project-entry--featured': featured && !compact, 'project-entry--compact': compact }]}>
   <span class="project-number" aria-hidden="true">{String(order).padStart(2, '0')}</span>
   <article aria-labelledby={`project-${project.id}`}>
     <p class="project-kicker">
       <span>{context}</span>
-      {featured && <span class="featured-label">Featured project</span>}
+      {featured && !compact && <span class="featured-label">Featured project</span>}
       {status && <span>{status}</span>}
     </p>
-    <h2 id={`project-${project.id}`}><a href={`/portfolio/projects/${project.id}/`}>{title}<span class="project-arrow" aria-hidden="true"> ↗</span></a></h2>
+    <Heading id={`project-${project.id}`}><a href={`/portfolio/projects/${project.id}/`}>{title}<span class="project-arrow" aria-hidden="true"> ↗</span></a></Heading>
     <p class="project-summary">{summary}</p>
-    {screenshot && (
+    {screenshot && !compact && (
       <a class="project-preview" href={`/portfolio/projects/${project.id}/`} aria-label={`Read the ${title} case study`}>
         <Image
           src={screenshot.src}
@@ -32,11 +33,11 @@ const { title, summary, context, featured, status, highlights, order, screenshot
         />
       </a>
     )}
-    {featured && highlights.length > 0 && (
+    {featured && !compact && highlights.length > 0 && (
       <dl class="project-highlights">
         {highlights.map(({ value, label }) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
       </dl>
     )}
-    {featured && <a class="read-case-study" href={`/portfolio/projects/${project.id}/`}>Read the case study <span aria-hidden="true">→</span></a>}
+    {featured && !compact && <a class="read-case-study" href={`/portfolio/projects/${project.id}/`}>Read the case study <span aria-hidden="true">→</span></a>}
   </article>
 </li>

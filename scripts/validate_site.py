@@ -8,7 +8,9 @@ import re
 import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.error import URLError
 from urllib.parse import unquote, urljoin, urlparse
+from urllib.request import urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +26,15 @@ PROJECT_SLUGS = (
     "assassins-creed-timeline",
     "skynet-countdown",
     "tribe",
+)
+LISTED_PROJECT_SLUGS = (
+    "aime",
+    "tribe",
+    "upstream",
+    "skynet-countdown",
+    "self-host-n8n-on-gcr",
+    "where-was-i",
+    "assassins-creed-timeline",
 )
 EXPECTED_PAGES = (
     "index.html",
@@ -125,6 +136,20 @@ def parse_page(path: Path) -> DocumentParser:
     return parser
 
 
+def validate_portfolio(parser: DocumentParser) -> list[str]:
+    listed = list(dict.fromkeys(
+        match.group(1)
+        for link in parser.links
+        if (match := re.fullmatch(r"/portfolio/projects/([^/]+)/", link["href"]))
+    ))
+    if listed != list(LISTED_PROJECT_SLUGS):
+        return [
+            "portfolio projects are missing, hidden entries are listed, or the order changed: "
+            f"expected {', '.join(LISTED_PROJECT_SLUGS)}; found {', '.join(listed) or 'none'}"
+        ]
+    return []
+
+
 def resolve_reference(page: Path, site_dir: Path, reference: str) -> tuple[Path, str] | None:
     if not reference or reference.startswith(("data:", "blob:", "javascript:")):
         return None
@@ -207,7 +232,26 @@ def main() -> int:
     argument_parser.add_argument(
         "--site-dir", type=Path, default=ROOT / "dist", help="built site directory"
     )
+    argument_parser.add_argument(
+        "--portfolio-url", help="validate the project listing from a running dev server instead of the build"
+    )
     args = argument_parser.parse_args()
+    if args.portfolio_url:
+        parser = DocumentParser()
+        try:
+            with urlopen(args.portfolio_url, timeout=15) as response:
+                parser.feed(response.read().decode("utf-8"))
+        except (URLError, OSError, UnicodeError) as error:
+            print(f"Live portfolio validation failed: {error}")
+            return 1
+        errors = validate_portfolio(parser)
+        if errors:
+            print("Live portfolio validation failed:")
+            for error in errors:
+                print(f"- {error}")
+            return 1
+        print(f"Live portfolio validation passed: all {len(LISTED_PROJECT_SLUGS)} listed projects appear in order; hidden entries are absent.")
+        return 0
     site_dir = args.site_dir.resolve()
     if not site_dir.is_dir():
         print(f"Site validation failed: built site directory is missing: {site_dir}")
@@ -268,6 +312,9 @@ def main() -> int:
     cv_page = site_dir / "index.html"
     if cv_page in pages:
         errors.extend(f"index.html: {error}" for error in validate_cv(pages[cv_page], baseline))
+    portfolio_page = site_dir / "portfolio" / "index.html"
+    if portfolio_page in pages:
+        errors.extend(validate_portfolio(pages[portfolio_page]))
     if errors:
         print("Site validation failed:")
         for error in errors:

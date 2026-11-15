@@ -930,9 +930,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .project-number { padding-top: 0.1rem; color: var(--accent); font-size: 0.84rem; }
 .project-kicker { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin: 0 0 0.6rem; color: var(--muted); font-size: 0.72rem; }
 .featured-label { color: var(--accent); }
-.project-entry h2 { font-size: clamp(1.2rem, 3.6vw, 1.55rem); line-height: 1.35; }
+.project-entry h2, .project-entry h3 { font-size: clamp(1.2rem, 3.6vw, 1.55rem); line-height: 1.35; }
 .project-entry--featured h2 { font-size: clamp(1.65rem, 5vw, 2.1rem); }
-.project-entry h2 a { border-bottom: 0; }
+.project-entry h2 a, .project-entry h3 a { border-bottom: 0; }
+.portfolio-secondary { margin-top: 1.5rem; padding-top: 1.8rem; border-top: 1px solid var(--section-line); }
+.portfolio-section-heading { margin: 0 0 1.4rem; font-size: 1.15rem; line-height: 1.4; }
+.project-entry--compact { padding: 1.4rem 0; }
+.project-entry--compact h3 { margin: 0; font-size: 1.05rem; }
+.project-entry--compact .project-summary { font-size: 0.84rem; }
+.personal-project-list { list-style: none; margin: 0; padding: 0; font-size: 0.84rem; }
+.personal-project-list li { margin: 0; }
+.personal-project-list a { display: inline-block; padding: 0.35rem 0; }
 .project-arrow { font-size: 0.8em; font-weight: 400; }
 .project-summary { margin: 0.65rem 0 0; color: var(--muted); font-size: 0.91rem; }
 .project-preview {
