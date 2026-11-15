@@ -31,6 +31,8 @@ npm exec --yes --package=@astrojs/check --package=typescript -- astro-check
 
 Each project needs a title, summary, context, role, order and at least one link. Collaborators, status, tags, highlights and a featured flag are optional. Keep external resources in frontmatter `links`, where the template adds analytics consistently. Optional sections may be omitted; do not invent dates, outcomes or metrics to fill the template.
 
+For a report download, put the PDF in `public/reports/` and add a resource link with a root-relative `.pdf` URL and `download: true`. The shared template adds the browser's download attribute and click tracking. T.R.I.B.E. uses `/reports/tribe-selected-report.pdf`; its selection of source pages is recorded in `DESIGN.md`.
+
 To add or replace a portfolio preview, put the original image in `src/assets/projects/` and add this optional frontmatter field to the project's Markdown file. The path is relative to that file; `alt` must describe the screenshot and cannot be empty.
 
 ```yaml
