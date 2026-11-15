@@ -2,12 +2,12 @@
 
 ## Source of truth
 
-Status: Active. Updated: 2026-09-23.
+Status: Active. Updated: 2026-11-15.
 
-Surfaces: the existing CV at `/`, a portfolio overview, and seven project pages.
+Surfaces: the existing CV at `/`, a portfolio overview, and eight project pages.
 Confirmed requirements: separate project URLs under `/portfolio/projects/{project-name}`; visual continuity with the CV; hiring managers for senior AI/data leadership roles as the primary audience, future collaborators as secondary; both CV and portfolio unindexed. Research and responsible-AI judgement remain useful supporting evidence. James identifies AI.M.E. as the strongest research example and confirms its methodology may be discussed publicly.
 
-The shared layout, content collection, overview and seven project pages are implemented. The site is published through GitHub Pages at `jameswolman.dev`. This document governs that implementation and records editorial gaps.
+The shared layout, content collection, overview and eight project pages are implemented. The site is published through GitHub Pages at `jameswolman.dev`. This document governs that implementation and records editorial gaps.
 
 Evidence reviewed:
 
@@ -17,6 +17,7 @@ Evidence reviewed:
 - James's project descriptions and subsequent clarification, retained privately in `.omx/context/portfolio-20260912T223044Z.md`.
 - Project screenshots supplied by James in `screenshots/projects/`, with maintained copies in `src/assets/projects/` named by the stable project slugs below.
 - James's description and supplied screenshot for Assassin's Creed Timeline, added on 23 September 2026. The copy uses that description and the visible atlas controls; the live site could not be retrieved during this update.
+- Skynet Countdown: James's account of leading design, development and architecture; the [live website](https://skynetcountdown.org/), [application repository](https://github.com/datawranglerai/the-skynet-countdown), [scoring package and its documented limitations](https://github.com/datawranglerai/skynet-countdown-scoring-methodology), and [PyPI release](https://pypi.org/project/skynet-countdown-scoring-methodology/), reviewed on 14 November 2026. Three browser captures show the homepage, an incident assessment and a labelled hypothetical calculator example. The case study credits Joe's strategy and manifesto contribution, distinguishes deterministic calculations from variable model judgements, and describes the clock as editorial.
 - Where Was I? implementation reviewed in `/Users/jameswolman/PycharmProjects/page-sage`: `backend/main.py`, `src/pagesage/core/`, `src/pagesage/rag/`, `config.yml`, `frontend/src/App.js`, the retrieval/summary regression tests and associated architecture/optimisation documentation. The case study describes narrative query decomposition, diversity-aware selection, page filters, token-budgeted summarisation, cached work, configurable embedding providers and device authentication without sign-up. The single-pass summary path is optional; documentation-only performance figures and absolute spoiler guarantees are excluded. Private evidence and the page-index caveat are recorded in `.omx/artifacts/portfolio/where-was-i-source-review.md`.
 - [Astro collections](https://docs.astro.build/en/guides/content-collections/), [routing](https://docs.astro.build/en/guides/routing/), [layouts](https://docs.astro.build/en/basics/astro-pages/) and [GitHub Pages deployment](https://docs.astro.build/en/guides/deploy/github/).
 - [James's published AI.M.E. methodology](https://braidr.ai/blog/braidrs-ai-maturity-evaluation-index-showing-our-workings/) and [Braidr's campaign](https://braidr.ai/ai-maturity-evaluation-index-ftse350/).
@@ -40,7 +41,7 @@ Trust comes from precise contributions, real examples, linked sources, appropria
 
 First-release non-goals: a wider CV redesign or rewrite, a blog, filtering/search for the project list, a CMS, a backend, accounts, live metric polling, or embedded replicas of the project applications. Publishing changes to production is a separate implementation step.
 
-Success signals: all seven projects are reachable from the overview; a detail page identifies purpose and contribution before its technical narrative; evidence links work; the CV's appearance and existing behaviour survive the migration; all generated pages carry the indexing directive.
+Success signals: all eight projects are reachable from the overview; a detail page identifies purpose and contribution before its technical narrative; evidence links work; the CV's appearance and existing behaviour survive the migration; all generated pages carry the indexing directive.
 
 ## Personas and jobs
 
@@ -55,7 +56,7 @@ Visitors may arrive directly on a project page, including on mobile, without fir
 | Route | Role |
 | --- | --- |
 | `/` | Existing CV with a visible Portfolio link |
-| `/portfolio/` | Short introduction, prominent AI.M.E. entry, six further project entries and contact links |
+| `/portfolio/` | Short introduction, prominent AI.M.E. entry, seven further project entries and contact links |
 | `/portfolio/projects/{slug}` | A complete, independently readable project case study |
 
 Use persistent CV/Portfolio navigation, an active-page indication, and a breadcrumb from each project to the overview. Keep project titles and commands understandable as standard links. The terminal window title can reflect `~/cv`, `~/portfolio`, or the current project.
@@ -66,13 +67,14 @@ Project inventory and stable slugs:
 | --- | --- | --- | --- |
 | AI.M.E. | `aime` | Professional, Braidr | https://aime.braidr.ai/ftse350 |
 | Where Was I? | `where-was-i` | Personal | https://wherewasi.co.uk |
+| Skynet Countdown | `skynet-countdown` | Personal, with an open-source evaluation package | https://skynetcountdown.org/ |
 | Upstream | `upstream` | Professional, Braidr and Fieldcraft Studios | https://good.braidr.ai/upstream |
 | Declassified Reclassified | `declassified-reclassified` | Personal research and writing | https://gist.github.com/datawranglerai/562e5abacc232ef9c540dfde913e211c |
 | Talk Data to Me | `talk-data-to-me` | Gemma 3n Impact Challenge entry | https://www.kaggle.com/competitions/google-gemma-3n-hackathon/writeups/talk-data-to-me |
 | Self-hosting n8n on Google Cloud Run | `self-host-n8n-on-gcr` | Open-source guide | https://github.com/datawranglerai/self-host-n8n-on-gcr |
 | Assassin's Creed Timeline | `assassins-creed-timeline` | Personal | https://assassinscreed.fyi/ |
 
-Overview: one expanded AI.M.E. entry followed by six project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one supplied screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Preserve the established order, with Assassin's Creed Timeline appended as the seventh project.
+Overview: one expanded AI.M.E. entry followed by seven project entries using the CV's existing list and divider vocabulary. Each entry has a title, short purpose statement, context/contribution metadata and a link to the case study. Place one screenshot beneath each summary, preserve its full proportions, and use a subtle border consistent with the terminal styling. Each preview links to its case study. Skynet Countdown is third, after Where Was I?, with the other projects retaining their relative order.
 
 Project hierarchy:
 
@@ -122,6 +124,7 @@ Reusable pieces in `src/components/` and `src/layouts/`:
 - Case-study layout: heading/summary, role and status metadata, optional contents, article body and footer navigation.
 - Where Was I? includes the supplied Product Hunt follow badge beneath its opening paragraph. Use Product Hunt's official light/dark images, selected by the existing site theme, at 250 × 54px with responsive sizing, a subtle theme-token outline and visible keyboard focus. Preserve the supplied destination and click tracking; no extra client script is needed.
 - Evidence figure: image or code-native diagram, descriptive caption and source link.
+- Skynet Countdown uses three real website captures within the case-study narrative. Markdown images use Astro's image processing; `project-screenshot` figures add the existing theme border and a descriptive caption. The homepage capture also supplies the overview preview. Captions identify these as November 2026 snapshots and distinguish the calculator's hypothetical state from the live clock.
 - Existing contact links and section/list primitives.
 
 One global stylesheet owns shared tokens and primitives. Content entries own project facts and ordering; optional page-specific CSS only handles genuine layout differences. Do not duplicate an independent portfolio palette or theme toggle implementation.
@@ -160,7 +163,7 @@ Use AI.M.E. consistently as the display name, expanded as Agentic AI Maturity Ev
 
 Framework: Astro 7.3.2 with static output, a local Markdown projects collection, one shared case-study route and the existing CSS. Use Node 24 LTS. Astro collections support structured local content; `getStaticPaths()` supplies the individual routes at build time. Content changes require rebuilding. See the official Astro references above.
 
-Current metadata: the filename supplies a stable slug; title, summary, context, role, order and HTTP(S) links are required. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All seven current entries have one. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
+Current metadata: the filename supplies a stable slug; title, summary, context, role, order and HTTP(S) links are required. Collaborators, status, tags, highlights, the featured flag and a screenshot are optional. A screenshot contains a local `src` path relative to the Markdown file and nonempty descriptive `alt` text. All eight current entries have one. Astro's native image processing generates responsive WebP previews with explicit dimensions and lazy loading, preserving the original proportions. Maintain the originals in `src/assets/projects/`; `screenshots/projects/` is the ignored intake folder. Use Markdown for the narrative. Dates can be introduced when established; they are not required fields.
 
 The CV uses the shared layout with its content, fragment IDs, theme behaviour, console features and existing links preserved, adding Portfolio navigation. Root-relative asset URLs keep fonts and the vendored analytics script working on nested routes. The small local theme script replaces the theme-change CDN dependency while preserving saved preferences and accessible switch behaviour. GitHub Pages uses GitHub Actions as its publishing source. The workflow builds and validates pushes and pull requests, then deploys successful pushes or manual dispatches from `main`. The custom domain remains `jameswolman.dev`.
 
@@ -175,7 +178,7 @@ Implementation sequence:
 3. Populate the other six pages from confirmed descriptions and available materials, tracking unresolved copy separately.
 4. Verify the complete static output and prepare the build/deploy workflow for the existing host.
 
-Acceptance checks: nine main pages plus 404 build; all seven project routes and navigation links resolve; unknown slugs reach the 404; fonts and scripts load at nested URLs; noindex is emitted everywhere and robots permits reading it; reading/navigation do not depend on JavaScript; themes persist with accessible controls; the CV remains visually consistent; outgoing analytics and fragments validate; mobile/desktop, keyboard and reduced-motion checks pass. `npm test` builds and runs the committed static/regression checks. Local browser evidence and screenshots are recorded under `.omx/artifacts/portfolio/`; these generated artifacts are not deployed.
+Acceptance checks: ten main pages plus 404 build; all eight project routes and navigation links resolve; unknown slugs reach the 404; fonts and scripts load at nested URLs; noindex is emitted everywhere and robots permits reading it; reading/navigation do not depend on JavaScript; themes persist with accessible controls; the CV remains visually consistent; outgoing analytics and fragments validate; mobile/desktop, keyboard and reduced-motion checks pass. `npm test` builds and runs the committed static/regression checks. Local browser evidence and screenshots are recorded under `.omx/artifacts/portfolio/`; these generated artifacts are not deployed.
 
 ## Open questions
 

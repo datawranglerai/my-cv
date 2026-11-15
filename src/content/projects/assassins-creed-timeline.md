@@ -7,7 +7,7 @@ summary: "An interactive historical atlas of Assassin's Creed: character arcs, e
 context: "Personal"
 role: "Creator: concept, data visualisation and interactive atlas"
 status: "Live"
-order: 7
+order: 8
 featured: false
 tags:
   - "data_visualisation"
