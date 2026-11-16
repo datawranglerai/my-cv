@@ -41,6 +41,13 @@ AI.M.E. (Agentic AI Maturity Evaluation)
 
 AI.M.E. is a multi-agent research system that scores how organisations adopt and govern AI using public evidence. I lead the programme at Braidr, covering the evaluation framework, research design and technical delivery. Two cohort studies are published, the FTSE AIM 100 (September 2025) and the FTSE 350 (July 2026), and the system now runs on demand as a production research service.
 
+<figure class="project-screenshot">
+
+![AI.M.E. leaderboard showing company rankings, overall scores, maturity levels and five pillar scores, with badges for strategic narratives.](<../../assets/projects/AIME Screenshot 2026-11-16 at 07.54.07.png>)
+
+<figcaption>The leaderboard compares overall and pillar scores, with links to each company's strategic narrative. Screenshot supplied in November 2026.</figcaption>
+</figure>
+
 ## My role and the team
 
 I was the lead architect and engineer. I also did the analysis, produced the findings and presented them internally and externally. My engineering team comprised one machine learning engineer and one data engineer. I worked with a strategist, the Chief AI Officer and our internal web development team.
@@ -50,6 +57,13 @@ I was the lead architect and engineer. I also did the analysis, produced the fin
 A company's public record gives us evidence about its AI capability, but no direct view of its internal practice. I made that limit part of the design from the start. Every finding cites an identifiable source, and the report flags uncertainty or thin evidence. Scores have to be explainable from those sources. The model can still misread them; reporting is restricted to the evidence it was given. That limits the assessment to publicly evidenced maturity.
 
 I defined what the assessment measures: five pillars (AI Strategy, Data & Insight, Content, Product & Service, People), a maturity curve running from Analogue to Augmentation, and the 180+ criteria the assessors reason against. I also chose to publish the methodology in full, so anyone can argue with the scores on their workings rather than taking them on trust.
+
+<figure class="project-screenshot">
+
+![NatWest Group company detail showing its overall AI maturity score, a radar chart across the five pillars and written strategic analysis.](<../../assets/projects/AIME Screenshot 2026-11-16 at 07.55.56.png>)
+
+<figcaption>NatWest's company view brings together the overall score, five-pillar profile and strategic analysis.</figcaption>
+</figure>
 
 ## How it works
 
@@ -64,6 +78,13 @@ We used human-in-the-loop evaluation alongside deterministic checks against figu
 The strategic reporting agents went through 12 rounds of editorial feedback. Each round included regression analysis of outputs from a representative 10% sample of the dataset, so we could track how quality changed as we revised the agents.
 
 We built QA agents to flag inconsistencies, contradictions, tone problems and claims that went beyond the evidence. We used the flags to track problems across revisions and guide human review and corrections.
+
+<figure class="project-screenshot">
+
+![Ocado Group's strategic report explaining the assessment's public-evidence scope, pillar weights and comparison with sector peers, with copy and download controls.](<../../assets/projects/AIME Screenshot 2026-11-16 at 07.54.23.png>)
+
+<figcaption>An example of the strategic reporting output: Ocado's report explains the assessment's scope and weights before comparing the company with its sector peers.</figcaption>
+</figure>
 
 ## Published studies and open questions
 
